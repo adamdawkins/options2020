@@ -155,11 +155,18 @@ const rulesForOption = (id, state) =>
 const optionsForRule = (id, state) =>
   state.rules[id].optionIds.map(id => state.options[id]);
 
-// fills out the option with rules: [Rule]
+// fills out the option with rules
 //    decorateOption :: State -> Int -> Option
 const decorateOption = curry((state, id) => ({
   ...state.options[id],
   rules: rulesForOption(id, state)
+}));
+
+// fills out the rule with options
+//    decorateRule :: State -> Int -> Option
+const decorateRule = curry((state, id) => ({
+  ...state.rules[id],
+  options: optionsForRule(id, state)
 }));
 
 //    relatedOptionIds :: (id, state) -> [Int]
@@ -215,15 +222,34 @@ const reducer = (state, action) => {
         ...state,
         debug: { ...state.debug, view: { type: "option", id: action.id } }
       };
+    case "DEBUG.VIEW_RULE":
+      return {
+        ...state,
+        debug: { ...state.debug, view: { type: "rule", id: action.id } }
+      };
+    default:
+      return state;
   }
 };
 
 // DEBUGGING HELPERS
 const debug = {
-  isRelated: (id, state) =>
-    state.debug.view &&
-    contains(id, relatedOptionIds(state.debug.view.id, state)),
-  isViewed: (id, state) => path(["debug", "view", "id"], state) === id
+  isRelated: (id, state) => {
+    const viewedType = path(["debug", "view", "type"], state);
+    const viewedId = path(["debug", "view", "id"], state);
+
+    if (viewedType !== "option") {
+      return false;
+    }
+
+    return contains(id, relatedOptionIds(viewedId, state));
+  },
+  isViewed: (id, state) => {
+    const viewedType = path(["debug", "view", "type"], state);
+    const viewedId = path(["debug", "view", "id"], state);
+
+    return viewedType === "option" && viewedId === id;
+  }
 };
 
 // VIEWS
@@ -251,6 +277,35 @@ function Option({
   );
 }
 
+export const DebugRuleView = ({ rule, dispatch }) => {
+  const relationshipType = relationshipTypes[rule.type];
+  return (
+    <div>
+      <h2>
+        {rule.id}: {relationshipType.name}
+      </h2>
+      <p>{relationshipType.description}</p>
+      <div>
+        <h3>Options</h3>
+        <ul>
+          {rule.options.map(option => (
+            <li key={option.id}>
+              <a
+                href="#"
+                onClick={() =>
+                  dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
+                }
+              >
+                {option.id}: {option.description}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
 export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
   return (
     <div>
@@ -262,7 +317,14 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
         <ul>
           {option.rules.map(rule => (
             <li key={rule.id}>
-              {rule.id} ({rule.type})
+              <a
+                href="#"
+                onClick={() =>
+                  dispatch({ type: "DEBUG.VIEW_RULE", id: rule.id })
+                }
+              >
+                {rule.id} ({rule.type})
+              </a>
             </li>
           ))}
         </ul>
@@ -287,6 +349,32 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
   );
 };
 
+function DebugSidebar({ state, dispatch }) {
+  const debugView = path(["debug", "view"], state);
+
+  if (!debugView) return null;
+
+  if (debugView.type === "option") {
+    return (
+      <DebugOptionView
+        option={decorateOption(state, state.debug.view.id)}
+        relatedOptions={relatedOptionIds(state.debug.view.id, state).map(
+          decorateOption(state)
+        )}
+        dispatch={dispatch}
+      />
+    );
+  }
+  if (debugView.type === "rule") {
+    return (
+      <DebugRuleView
+        rule={decorateRule(state, state.debug.view.id)}
+        dispatch={dispatch}
+      />
+    );
+  }
+}
+
 function App() {
   const [state, dispatch] = useReducer(reducer, VWGO20ME_5EDTA_6, init);
   console.log(state);
@@ -310,15 +398,7 @@ function App() {
         )}
       </div>
       <div className="sidebar">
-        {state.debug.view && (
-          <DebugOptionView
-            option={decorateOption(state, state.debug.view.id)}
-            relatedOptions={relatedOptionIds(state.debug.view.id, state).map(
-              decorateOption(state)
-            )}
-            dispatch={dispatch}
-          />
-        )}
+        <DebugSidebar state={state} dispatch={dispatch} />
       </div>
     </div>
   );
