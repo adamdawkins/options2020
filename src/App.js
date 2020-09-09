@@ -5,6 +5,19 @@ import "./App.css";
 
 // UTILS
 
+// Function utils
+const curry = fn => {
+  const arity = fn.length;
+
+  return function $curry(...args) {
+    if (args.length < arity) {
+      return $curry.bind(null, ...args);
+    }
+
+    return fn.call(null, ...args);
+  };
+};
+
 // List Utils
 
 //    contains :: (x, [x]) -> Boolean
@@ -20,6 +33,10 @@ const without = (item, list) => list.filter(x => x !== item);
 
 //    collection :: {key: object} -> [object]
 const collection = obj => Object.keys(obj).map(key => obj[key]);
+
+// passes each key in the object to a custom function to return the collection
+//    decorateCollection :: (fn, {key: object}) -> [object]
+const decorateCollection = (fn, object) => Object.keys(object).map(fn);
 
 //    safely return the property at a nested object path
 //    e.g. path(["a", "b", "c"], { a: { b: { c: "foo" } } }) => "foo"
@@ -41,6 +58,45 @@ const path = (props, object) => {
 };
 
 // DATA HANDLERS & SETUP
+
+const relationshipTypes = {
+  OO: {
+    name: "One Of",
+    description: "From the marked options, a maximum of one may be selected"
+  },
+  RO: {
+    name: "Requires One Of",
+    description:
+      "If the primary option is chosen, it must be accompanied by at least one of the non-primary options in that rule"
+  },
+  RA: {
+    name: "Requires All",
+    description:
+      "If the primary option is chosen, it is accompanied by all the non-primary options in that rule"
+  },
+  NW: {
+    name: "Not With",
+    description:
+      "If the primary option is chosen, none of the other marked options may be chosen."
+  },
+  IN: {
+    name: "Included In",
+    description:
+      "The marked options are included in the price of the primary option, which is a pack."
+  },
+  IO: {
+    name: "Include One Of",
+    description:
+      "If the primary option is chosen, it must be accompanied by one of the non-primary options. The selected non-primary option will be included at 0 cost."
+  }
+};
+
+const ONE_OF = "OO";
+const REQUIRES_ONE = "RO";
+const REQUIRES_ALL = "RA";
+const NOT_WITH = "NW";
+const INCLUDED_IN = "IN";
+const INCLUDE_ONE = "IO";
 
 //    init :: [OptionRow] => State
 const init = data => {
@@ -90,14 +146,6 @@ const init = data => {
   return state;
 };
 
-// DEBUGGING HELPERS
-const debug = {
-  isRelated: (id, state) =>
-    state.debug.view &&
-    contains(id, relatedOptionIds(state.debug.view.id, state)),
-  isViewed: (id, state) => path(["debug", "view", "id"], state) === id
-};
-
 // GETTERS
 //    rulesForOption :: (id, state) -> [Rule]
 const rulesForOption = (id, state) =>
@@ -108,11 +156,11 @@ const optionsForRule = (id, state) =>
   state.rules[id].optionIds.map(id => state.options[id]);
 
 // fills out the option with rules: [Rule]
-//    buildOption :: (id, state) -> Option
-const buildOption = (id, state) => ({
+//    decorateOption :: State -> Int -> Option
+const decorateOption = curry((state, id) => ({
   ...state.options[id],
   rules: rulesForOption(id, state)
-});
+}));
 
 //    relatedOptionIds :: (id, state) -> [Int]
 const relatedOptionIds = (id, state) =>
@@ -170,6 +218,15 @@ const reducer = (state, action) => {
   }
 };
 
+// DEBUGGING HELPERS
+const debug = {
+  isRelated: (id, state) =>
+    state.debug.view &&
+    contains(id, relatedOptionIds(state.debug.view.id, state)),
+  isViewed: (id, state) => path(["debug", "view", "id"], state) === id
+};
+
+// VIEWS
 function Option({
   id,
   price,
@@ -194,7 +251,7 @@ function Option({
   );
 }
 
-export const DebugView = ({ option }) => {
+export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
   return (
     <div>
       <h2>
@@ -212,6 +269,20 @@ export const DebugView = ({ option }) => {
       </div>
 
       <h3>Related Options</h3>
+      <ul>
+        {relatedOptions.map(option => (
+          <li key={option.key}>
+            <a
+              href="#"
+              onClick={() =>
+                dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
+              }
+            >
+              {option.id}: {option.description}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
@@ -222,23 +293,31 @@ function App() {
   return (
     <div className="App">
       <div className="options">
-        {collection(state.options).map(option => (
-          <Option
-            key={option.id}
-            onClick={() =>
-              dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
-            }
-            {...option}
-            debug={{
-              isRelated: debug.isRelated(option.id, state),
-              isViewed: debug.isViewed(option.id, state)
-            }}
-          />
-        ))}
+        {decorateCollection(decorateOption(state), state.options).map(
+          option => (
+            <Option
+              key={option.id}
+              onClick={() =>
+                dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
+              }
+              {...option}
+              debug={{
+                isRelated: debug.isRelated(option.id, state),
+                isViewed: debug.isViewed(option.id, state)
+              }}
+            />
+          )
+        )}
       </div>
       <div className="sidebar">
         {state.debug.view && (
-          <DebugView option={buildOption(state.debug.view.id, state)} />
+          <DebugOptionView
+            option={decorateOption(state, state.debug.view.id)}
+            relatedOptions={relatedOptionIds(state.debug.view.id, state).map(
+              decorateOption(state)
+            )}
+            dispatch={dispatch}
+          />
         )}
       </div>
     </div>
