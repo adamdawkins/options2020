@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import classNames from "classnames";
-import { VWGO20ME_5EDTA_6 } from "./data";
+import data from "./data";
 import "./App.css";
 
 // UTILS
@@ -109,7 +109,15 @@ const init = data => {
   };
 
   data.map(
-    ([
+    ({
+      id,
+      capcode,
+      name,
+      introduced,
+      discontinued,
+      periodCode,
+      periodEffectiveFrom,
+      periodEffectiveTo,
       ruleCode,
       ruleType,
       optionCode,
@@ -117,14 +125,18 @@ const init = data => {
       basicPrice,
       vat,
       defaultOption,
-      description
-    ]) => {
+      description,
+      nonSpecificCostOption,
+      categoryCode,
+      categoryDescription
+    }) => {
       const option = state.options[optionCode] || { ruleIds: [] };
       const newOption = Object.assign(option, {
         id: optionCode,
         price: basicPrice,
+        isPrimary,
         isDefault: defaultOption,
-        description: description,
+        description,
         ruleIds: option.ruleIds.concat([ruleCode])
       });
 
@@ -395,7 +407,7 @@ function DebugSidebar({ state, dispatch }) {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, VWGO20ME_5EDTA_6, init);
+  const [state, dispatch] = useReducer(reducer, data.VWGO20ME_5EDTA_6, init);
   console.log(state);
   return (
     <div className="App">
