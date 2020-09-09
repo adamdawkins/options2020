@@ -134,7 +134,6 @@ const init = data => {
       const newOption = Object.assign(option, {
         id: optionCode,
         price: basicPrice,
-        isPrimary,
         isDefault: defaultOption,
         description,
         ruleIds: option.ruleIds.concat([ruleCode])
@@ -148,6 +147,10 @@ const init = data => {
         type: ruleType,
         optionIds: rule.optionIds.concat([optionCode])
       });
+
+      if (isPrimary) {
+        newRule.primaryOptionId = optionCode;
+      }
 
       state.rules[ruleCode] = newRule;
 
@@ -318,20 +321,21 @@ export const DebugRuleView = ({ rule, dispatch }) => {
       <p>{relationshipType.description}</p>
       <div>
         <h3>Options</h3>
-        <ul>
-          {rule.options.map(option => (
-            <li key={option.id}>
-              <a
-                href="#"
-                onClick={() =>
-                  dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
-                }
-              >
-                {option.id}: {option.description}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {rule.options.map(option => (
+          <div
+            className={classNames("option", {
+              primary: option.id === rule.primaryOptionId
+            })}
+            key={option.id}
+            onClick={() =>
+              dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
+            }
+          >
+            <span className="option__title">
+              {option.id}: {option.description}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -345,37 +349,31 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
       </h2>
       <div>
         <h3>Rules</h3>
-        <ul>
-          {option.rules.map(rule => (
-            <li key={rule.id}>
-              <a
-                href="#"
-                onClick={() =>
-                  dispatch({ type: "DEBUG.VIEW_RULE", id: rule.id })
-                }
-              >
-                {rule.id} ({rule.type})
-              </a>
-            </li>
-          ))}
-        </ul>
+        {option.rules.map(rule => (
+          <div
+            className="option"
+            key={rule.id}
+            onClick={() => dispatch({ type: "DEBUG.VIEW_RULE", id: rule.id })}
+          >
+            <div className="option__title">
+              {rule.id} ({rule.type})
+            </div>
+          </div>
+        ))}
       </div>
 
       <h3>Related Options</h3>
-      <ul>
-        {relatedOptions.map(option => (
-          <li key={option.key}>
-            <a
-              href="#"
-              onClick={() =>
-                dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
-              }
-            >
-              {option.id}: {option.description}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {relatedOptions.map(option => (
+        <div
+          className="option"
+          key={option.id}
+          onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })}
+        >
+          <span className="option__title">
+            {option.id}: {option.description}
+          </span>
+        </div>
+      ))}
     </div>
   );
 };

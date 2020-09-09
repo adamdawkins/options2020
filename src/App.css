@@ -10,12 +10,11 @@ body {
 }
 
 .sidebar {
-  background: #fff;
   width: 25%;
   overflow: auto;
   padding: 1em;
   height: 100vh;
-  box-shadow: 0 0px 1px rgba(9,30,66,.25);
+  border-left: 2px solid black;
 }
 
 .options {
@@ -37,6 +36,10 @@ body {
   cursor: pointer;
   padding: 6px 8px 2px;
   font-size: 14px;
+}
+
+.option.primary {
+  font-weight: bold;
 }
 
 .option__title {
