@@ -105,7 +105,7 @@ const init = data => {
     rules: {},
     selectedOptions: [],
     appliedRules: [],
-    debug: {}
+    debug: { view: { id: null, type: null } }
   };
 
   data.map(
@@ -258,21 +258,40 @@ function Option({
   price,
   isDefault,
   description,
-  ruleIds,
   isSelected,
-  onClick,
-  debug
+  rules,
+  debug,
+  dispatch
 }) {
   return (
     <div
-      onClick={onClick}
+      onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id })}
       className={classNames("option", {
         selected: isSelected,
         viewed: debug.isViewed,
         related: debug.isRelated
       })}
     >
-      {id}: {description}
+      <div className="option__labels">
+        {rules.map(rule => (
+          <span
+            key={rule.id}
+            className={classNames("option-label", {
+              selected: debug.view.id === rule.id
+            })}
+            title={rule.id}
+            onClick={event => {
+              event.stopPropagation();
+              dispatch({ type: "DEBUG.VIEW_RULE", id: rule.id });
+            }}
+          >
+            {rule.type}
+          </span>
+        ))}
+      </div>
+      <span className="option__title">
+        {id}: {description}
+      </span>
     </div>
   );
 }
@@ -352,7 +371,7 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
 function DebugSidebar({ state, dispatch }) {
   const debugView = path(["debug", "view"], state);
 
-  if (!debugView) return null;
+  if (!debugView.type) return null;
 
   if (debugView.type === "option") {
     return (
@@ -385,13 +404,12 @@ function App() {
           option => (
             <Option
               key={option.id}
-              onClick={() =>
-                dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
-              }
               {...option}
+              dispatch={dispatch}
               debug={{
                 isRelated: debug.isRelated(option.id, state),
-                isViewed: debug.isViewed(option.id, state)
+                isViewed: debug.isViewed(option.id, state),
+                view: state.debug.view
               }}
             />
           )

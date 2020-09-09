@@ -1,30 +1,72 @@
 body {
-  padding: 20px;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  background: #ebecf0;
 }
 
 .App {
-  display: grid;
-
-  grid-template-columns: 5fr 2fr;
-  grid-gap: 20px;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .sidebar {
-  background: #eee;
-  height: 100%;
-  padding: 20px;
+  background: #fff;
+  width: 25%;
+  overflow: auto;
+  padding: 1em;
+  height: 100vh;
+  box-shadow: 0 0px 1px rgba(9,30,66,.25);
 }
 
 .options {
   height: 100%;
+  width: 75%;
+  overflow: auto;
+  padding: 1em;
   display: grid;
   grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .option {
-  border: 3px solid black;
-  padding: 2em;
+  border-radius: 3px;
+  margin-bottom: 8px;
+
+  background: white;
+  box-shadow: 0 1px 0 rgba(9,30,66,.25);
   cursor: pointer;
+  padding: 6px 8px 2px;
+  font-size: 14px;
+}
+
+.option__title {
+  margin-bottom: 4px;
+  line-height: 20px;
+}
+
+.option__labels {
+  position: relative;
+  overflow: auto;
+}
+
+.option-label {
+  float: left;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 4px 4px 0;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 8px;
+  max-width: 198px;
+  background-color: #b3bac5;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.option-label.selected {
+  background: yellow;
+  color: black;
 }
 
 .option.related {
