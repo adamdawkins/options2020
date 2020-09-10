@@ -1,5 +1,13 @@
 import React, { useReducer } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 import classNames from "classnames";
+
 import data from "./data";
 import "./App.css";
 
@@ -105,58 +113,9 @@ const init = data => {
     rules: {},
     selectedOptions: [],
     appliedRules: [],
-    debug: { view: { id: null, type: null } }
+    debug: { view: { id: null, type: null } },
+    cars: Object.keys(data)
   };
-
-  data.map(
-    ({
-      id,
-      capcode,
-      name,
-      introduced,
-      discontinued,
-      periodCode,
-      periodEffectiveFrom,
-      periodEffectiveTo,
-      ruleCode,
-      ruleType,
-      optionCode,
-      isPrimary,
-      basicPrice,
-      vat,
-      defaultOption,
-      description,
-      nonSpecificCostOption,
-      categoryCode,
-      categoryDescription
-    }) => {
-      const option = state.options[optionCode] || { ruleIds: [] };
-      const newOption = Object.assign(option, {
-        id: optionCode,
-        price: basicPrice,
-        isDefault: defaultOption,
-        description,
-        ruleIds: option.ruleIds.concat([ruleCode])
-      });
-
-      state.options[optionCode] = newOption;
-
-      const rule = state.rules[ruleCode] || { optionIds: [] };
-      const newRule = Object.assign(rule, {
-        id: ruleCode,
-        type: ruleType,
-        optionIds: rule.optionIds.concat([optionCode])
-      });
-
-      if (isPrimary) {
-        newRule.primaryOptionId = optionCode;
-      }
-
-      state.rules[ruleCode] = newRule;
-
-      return true;
-    }
-  );
 
   return state;
 };
@@ -242,6 +201,8 @@ const reducer = (state, action) => {
         ...state,
         debug: { ...state.debug, view: { type: "rule", id: action.id } }
       };
+    case "DEBUG.SELECT_VEHICLE":
+      return debug.addVehicleOptionsToState(action.capcode, state);
     default:
       return state;
   }
@@ -249,6 +210,60 @@ const reducer = (state, action) => {
 
 // DEBUGGING HELPERS
 const debug = {
+  addVehicleOptionsToState: (capcode, state) => {
+    const vehicleData = data[capcode];
+    vehicleData.map(
+      ({
+        id,
+        capcode,
+        name,
+        introduced,
+        discontinued,
+        periodCode,
+        periodEffectiveFrom,
+        periodEffectiveTo,
+        ruleCode,
+        ruleType,
+        optionCode,
+        isPrimary,
+        basicPrice,
+        vat,
+        defaultOption,
+        description,
+        nonSpecificCostOption,
+        categoryCode,
+        categoryDescription
+      }) => {
+        const option = state.options[optionCode] || { ruleIds: [] };
+        const newOption = Object.assign(option, {
+          id: optionCode,
+          price: basicPrice,
+          isDefault: defaultOption,
+          description,
+          ruleIds: unique(option.ruleIds.concat([ruleCode]))
+        });
+
+        state.options[optionCode] = newOption;
+
+        const rule = state.rules[ruleCode] || { optionIds: [] };
+        const newRule = Object.assign(rule, {
+          id: ruleCode,
+          type: ruleType,
+          optionIds: rule.optionIds.concat([optionCode])
+        });
+
+        if (isPrimary) {
+          newRule.primaryOptionId = optionCode;
+        }
+
+        state.rules[ruleCode] = newRule;
+
+        return true;
+      }
+    );
+
+    return state;
+  },
   isRelated: (id, state) => {
     const viewedType = path(["debug", "view", "type"], state);
     const viewedId = path(["debug", "view", "id"], state);
@@ -404,9 +419,27 @@ function DebugSidebar({ state, dispatch }) {
   }
 }
 
-function App() {
-  const [state, dispatch] = useReducer(reducer, data.VWGO20ME_5EDTA_6, init);
-  console.log(state);
+function Home({ cars }) {
+  return (
+    <div style={{ padding: "2em" }}>
+      <h1>
+        Pick a car, any car<span style={{ opacity: 0.1 }}>d</span>
+      </h1>
+      <ul>
+        {cars.map(capcode => (
+          <li key={capcode}>
+            <Link to={`/${capcode}`}>{capcode}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function OptionViewer({ state, dispatch }) {
+  const { capcode } = useParams();
+  dispatch({ type: "DEBUG.SELECT_VEHICLE", capcode });
+
   return (
     <div className="App">
       <div className="options">
@@ -429,6 +462,26 @@ function App() {
         <DebugSidebar state={state} dispatch={dispatch} />
       </div>
     </div>
+  );
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, data, init);
+  console.log(state);
+  return (
+    <Router>
+      <header>
+        <Link to="/">Home</Link>
+      </header>
+      <Switch>
+        <Route path="/:capcode">
+          <OptionViewer state={state} dispatch={dispatch} />
+        </Route>
+        <Route path="/">
+          <Home cars={state.cars} />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

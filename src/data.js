@@ -1,8 +1,8 @@
 export default {
-  VWGO20ME_5EDTA_6: [
+  "VWGO20ME 5EDTA 6": [
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -25,7 +25,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -48,7 +48,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -71,7 +71,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -94,7 +94,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -117,7 +117,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -140,7 +140,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -163,7 +163,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -186,7 +186,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -209,7 +209,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -232,7 +232,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -255,7 +255,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -278,7 +278,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -301,7 +301,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -324,7 +324,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -347,7 +347,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -371,7 +371,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -395,7 +395,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -418,7 +418,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -441,7 +441,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -464,7 +464,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -487,7 +487,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -510,7 +510,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -533,7 +533,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -556,7 +556,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -580,7 +580,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -603,7 +603,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -626,7 +626,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -650,7 +650,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -673,7 +673,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -696,7 +696,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -719,7 +719,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -743,7 +743,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -767,7 +767,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -791,7 +791,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -815,7 +815,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -838,7 +838,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -862,7 +862,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -885,7 +885,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -909,7 +909,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -932,7 +932,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -956,7 +956,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -979,7 +979,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1002,7 +1002,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1026,7 +1026,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1050,7 +1050,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1073,7 +1073,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1096,7 +1096,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1120,7 +1120,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1143,7 +1143,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1167,7 +1167,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1190,7 +1190,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1214,7 +1214,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1238,7 +1238,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1262,7 +1262,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1286,7 +1286,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1310,7 +1310,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1334,7 +1334,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1358,7 +1358,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1382,7 +1382,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1406,7 +1406,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1430,7 +1430,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1454,7 +1454,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1477,7 +1477,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1500,7 +1500,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1523,7 +1523,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1547,7 +1547,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1571,7 +1571,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1595,7 +1595,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1619,7 +1619,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1643,7 +1643,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1666,7 +1666,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1690,7 +1690,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1713,7 +1713,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1736,7 +1736,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1759,7 +1759,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1782,7 +1782,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1805,7 +1805,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1828,7 +1828,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1852,7 +1852,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1876,7 +1876,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1899,7 +1899,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1923,7 +1923,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
@@ -1946,7 +1946,7 @@ export default {
     },
     {
       id: 91341,
-      capcode: "VWGO20ME 5EDTA  6",
+      capcode: "VWGO20ME 5EDTA 6",
       name: "2.0 TDI Match Edition 5dr DSG",
       introduced: "2019-10-01",
       discontinued: "NULL",
