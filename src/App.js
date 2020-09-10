@@ -446,21 +446,28 @@ function OptionViewer({ state, dispatch }) {
 
   return (
     <div className="App">
-      <div className="cards">
-        {decorateCollection(decorateOption(state), state.options).map(
-          option => (
-            <Option
-              key={option.id}
-              {...option}
-              dispatch={dispatch}
-              debug={{
-                isRelated: debug.isRelated(option.id, state),
-                isViewed: debug.isViewed(option.id, state),
-                view: state.debug.view
-              }}
-            />
-          )
-        )}
+      <div className="main">
+        <h1>{capcode}</h1>
+        <p className="summary">
+          {Object.keys(state.options).length} options,{" "}
+          {Object.keys(state.rules).length} rules
+        </p>
+        <div className="cards">
+          {decorateCollection(decorateOption(state), state.options).map(
+            option => (
+              <Option
+                key={option.id}
+                {...option}
+                dispatch={dispatch}
+                debug={{
+                  isRelated: debug.isRelated(option.id, state),
+                  isViewed: debug.isViewed(option.id, state),
+                  view: state.debug.view
+                }}
+              />
+            )
+          )}
+        </div>
       </div>
       <div className="sidebar">
         <DebugSidebar state={state} dispatch={dispatch} />
