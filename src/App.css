@@ -20,7 +20,7 @@ body {
   top: 0;
 }
 
-.options {
+.cards {
   height: 100%;
   width: 75%;
   overflow: auto;
@@ -30,7 +30,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.option {
+.card {
   border-radius: 3px;
   margin-bottom: 8px;
 
@@ -42,21 +42,21 @@ body {
   transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.option.primary {
+.card.primary {
   font-weight: bold;
 }
 
-.option__title {
+.card__title {
   margin-bottom: 4px;
   line-height: 20px;
 }
 
-.option__labels {
+.card__labels {
   position: relative;
   overflow: auto;
 }
 
-.option-label {
+.card-label {
   float: left;
   font-size: 12px;
   font-weight: 700;
@@ -71,28 +71,28 @@ body {
   cursor: pointer;
 }
 
-.option-label.selected {
+.card-label.selected {
   background: yellow;
   color: black;
 }
 
-.option.related {
+.card.related {
    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
    background: white;
    background: rgba(255, 255, 0, .3);
 }
 
-.option.selected, .option.viewed {
+.card.selected, .card.viewed {
    background: rgba(255, 255, 0, .8);
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   font-weight: bold;
 }
 
-.option.disabled {
+.card.disabled {
   opacity: .5;
   cursor: default;
 }
 
-.option.hidden {
+.card.hidden {
   display: none;
 }

@@ -298,17 +298,17 @@ function Option({
   return (
     <div
       onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id })}
-      className={classNames("option", {
+      className={classNames("card", {
         selected: isSelected,
         viewed: debug.isViewed,
         related: debug.isRelated
       })}
     >
-      <div className="option__labels">
+      <div className="card__labels">
         {rules.map(rule => (
           <span
             key={rule.id}
-            className={classNames("option-label", {
+            className={classNames("card-label", {
               selected: debug.view.id === rule.id
             })}
             title={rule.id}
@@ -321,7 +321,7 @@ function Option({
           </span>
         ))}
       </div>
-      <span className="option__title">
+      <span className="card__title">
         {id}: {description}
       </span>
     </div>
@@ -340,7 +340,7 @@ export const DebugRuleView = ({ rule, dispatch }) => {
         <h3>Options</h3>
         {rule.options.map(option => (
           <div
-            className={classNames("option", {
+            className={classNames("card", {
               primary: option.id === rule.primaryOptionId
             })}
             key={option.id}
@@ -348,7 +348,7 @@ export const DebugRuleView = ({ rule, dispatch }) => {
               dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })
             }
           >
-            <span className="option__title">
+            <span className="card__title">
               {option.id}: {option.description}
             </span>
           </div>
@@ -368,11 +368,11 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
         <h3>Rules</h3>
         {option.rules.map(rule => (
           <div
-            className="option"
+            className="card"
             key={rule.id}
             onClick={() => dispatch({ type: "DEBUG.VIEW_RULE", id: rule.id })}
           >
-            <div className="option__title">
+            <div className="card__title">
               {rule.id} ({rule.type})
             </div>
           </div>
@@ -382,11 +382,11 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
       <h3>Related Options</h3>
       {relatedOptions.map(option => (
         <div
-          className="option"
+          className="card"
           key={option.id}
           onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })}
         >
-          <span className="option__title">
+          <span className="card__title">
             {option.id}: {option.description}
           </span>
         </div>
@@ -444,7 +444,7 @@ function OptionViewer({ state, dispatch }) {
 
   return (
     <div className="App">
-      <div className="options">
+      <div className="cards">
         {decorateCollection(decorateOption(state), state.options).map(
           option => (
             <Option
