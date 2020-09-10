@@ -427,13 +427,15 @@ function Home({ cars }) {
       <h1>
         Pick a car, any car<span style={{ opacity: 0.1 }}>d</span>
       </h1>
-      <ul>
+      <div className="cards">
         {cars.map(capcode => (
-          <li key={capcode}>
-            <Link to={`/${capcode}`}>{capcode}</Link>
-          </li>
+          <Link to={`/${capcode}`}>
+            <div className="card" key={capcode}>
+              <div className="card__title">{capcode}</div>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
