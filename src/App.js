@@ -129,11 +129,12 @@ const rulesForOption = (id, state) =>
 const optionsForRule = (id, state) =>
   state.rules[id].optionIds.map(id => state.options[id]);
 
-// fills out the option with rules
+// fills out the option with rules and basket status
 //    decorateOption :: State -> Int -> Option
 const decorateOption = curry((state, id) => ({
   ...state.options[id],
-  rules: rulesForOption(id, state)
+  rules: rulesForOption(id, state),
+  isSelected: isSelected(id, state)
 }));
 
 // fills out the rule with options
@@ -150,6 +151,9 @@ const relatedOptionIds = (id, state) =>
       .map(({ optionIds }) => optionIds)
       .flat()
   );
+
+// isSelected :: (Int, State) -> Boolean
+const isSelected = (id, state) => contains(id, state.selectedOptions);
 
 // ACTIONS
 
@@ -364,6 +368,11 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
       <h2>
         {option.id}: {option.description}
       </h2>
+      {option.isSelected ? (
+        <button>Remove Option</button>
+      ) : (
+        <button>Select Option</button>
+      )}
       <div>
         <h3>Rules</h3>
         {option.rules.map(rule => (
