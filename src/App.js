@@ -211,6 +211,8 @@ const reducer = (state, action) => {
 // DEBUGGING HELPERS
 const debug = {
   addVehicleOptionsToState: (capcode, state) => {
+    state.options = {};
+    state.rules = {};
     const vehicleData = data[capcode];
     vehicleData.map(
       ({
