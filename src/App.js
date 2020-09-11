@@ -391,17 +391,21 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
       </div>
 
       <h3>Related Options</h3>
-      {relatedOptions.map(option => (
-        <div
-          className="card"
-          key={option.id}
-          onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id: option.id })}
-        >
-          <span className="card__title">
-            {option.id}: {option.description}
-          </span>
-        </div>
-      ))}
+      {relatedOptions
+        .filter(relatedOption => relatedOption.id !== option.id)
+        .map(relatedOption => (
+          <div
+            className="card"
+            key={relatedOption.id}
+            onClick={() =>
+              dispatch({ type: "DEBUG.VIEW_OPTION", id: relatedOption.id })
+            }
+          >
+            <span className="card__title">
+              {relatedOption.id}: {relatedOption.description}
+            </span>
+          </div>
+        ))}
     </div>
   );
 };
