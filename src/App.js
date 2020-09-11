@@ -82,10 +82,10 @@ const getAppliedRules = (selectedOptions, state) =>
 //    reducer :: (State, Action) -> State
 const reducer = (state, action) => {
   switch (action.type) {
-    case "TOGGLE_OPTION":
-      return contains(action.id, state.selectedOptions)
-        ? deselectOption(action.id, state)
-        : selectOption(action.id, state);
+    case "BASKET.ADD_OPTION":
+      return selectOption(action.id, state);
+    case "BASKET.REMOVE_OPTION":
+      return deselectOption(action.id, state);
     case "DEBUG.VIEW_OPTION":
       return {
         ...state,

@@ -13,7 +13,6 @@ export default function Option({
 }) {
   return (
     <div
-      onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id })}
       className={classNames("card", {
         selected: isSelected,
         viewed: debug.isViewed,
@@ -40,6 +39,29 @@ export default function Option({
       <span className="card__title">
         {id}: {description}
       </span>
+      <div className="card__actions">
+        {isSelected ? (
+          <button
+            className="warning"
+            onClick={() => dispatch({ type: "BASKET.REMOVE_OPTION", id })}
+          >
+            Remove Option
+          </button>
+        ) : (
+          <button
+            className="primary"
+            onClick={() => dispatch({ type: "BASKET.ADD_OPTION", id })}
+          >
+            Add Option
+          </button>
+        )}
+        <button
+          className="view-button"
+          onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id })}
+        >
+          View
+        </button>
+      </div>
     </div>
   );
 }

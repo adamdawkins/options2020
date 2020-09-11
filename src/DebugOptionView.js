@@ -8,12 +8,7 @@ export default function DebugOptionView({ option, relatedOptions, dispatch }) {
         {option.description}
         <p className="summary">£{(option.price / 36).toFixed(2)} p/m</p>
       </h2>
-      {option.isSelected ? (
-        <button>Remove Option</button>
-      ) : (
-        <button>Select Option</button>
-      )}
-      <div style={{ marginTop: "4em" }}>
+      <div style={{ marginTop: "1em" }}>
         <h3>Rules</h3>
         {option.rules.map(rule => (
           <div

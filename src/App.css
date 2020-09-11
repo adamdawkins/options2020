@@ -57,8 +57,7 @@ body {
    background: rgba(255, 255, 0, .3);
 }
 
-.card.selected, .card.viewed {
-  background: rgba(255, 255, 0, .8);
+.card.viewed {
   box-shadow: 5px 5px black;
   font-weight: bold;
 }
@@ -80,6 +79,10 @@ body {
 .card__labels {
   position: relative;
   overflow: auto;
+}
+
+.card__actions  {
+  padding: .5em 0;
 }
 
 .card-label {
@@ -123,13 +126,12 @@ button {
   border: 2px solid rgb(34, 34, 34);
   border-radius: 5px;
 
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: normal;
+  font-size: 14px;
 
-  padding: 8px 10px 4px;
+  padding: 4px 7px 2px;
   cursor: pointer;
-  background-color: rgb(131, 255, 205);
-  box-shadow: 4px 4px 0 rgb(34, 34, 34);
+  background-color: white;
 }
 
 button:active {
@@ -138,6 +140,18 @@ button:active {
 
 button:hover {
   box-shadow: 2px 2px 0 rgb(34, 34, 34);
+}
+
+button.primary {
+  background-color: rgb(131, 255, 205);
+}
+
+button.warning {
+  background-color: #ffdadf;
+}
+
+button + button {
+  margin-left: 1em;
 }
 
 .id {
