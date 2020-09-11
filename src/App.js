@@ -457,15 +457,17 @@ function OptionViewer({ state, dispatch }) {
   return (
     <div className="App">
       <div className="main">
-        <h1>{capcode}</h1>
-        <p className="summary">
-          {numberOfOptions} options, {numberOfRules} rules (Complexity:{" "}
-          {Math.round(
-            (numberOfOptions / numberOfRules) *
-              (numberOfOptions + numberOfRules)
-          )}
-          )
-        </p>
+        <div className="basket">
+          <h1>{capcode}</h1>
+          <p className="summary">
+            {numberOfOptions} options, {numberOfRules} rules (Complexity:{" "}
+            {Math.round(
+              (numberOfOptions / numberOfRules) *
+                (numberOfOptions + numberOfRules)
+            )}
+            )
+          </p>
+        </div>
         <div className="cards">
           {decorateCollection(decorateOption(state), state.options).map(
             option => (
@@ -495,9 +497,6 @@ function App() {
   console.log(state);
   return (
     <Router>
-      <header>
-        <Link to="/">Home</Link>
-      </header>
       <Switch>
         <Route path="/:capcode">
           <OptionViewer state={state} dispatch={dispatch} />

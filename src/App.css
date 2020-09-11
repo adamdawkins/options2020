@@ -13,6 +13,7 @@ body {
 .sidebar {
   width: 25%;
   overflow: auto;
+  margin-left: 1em;
   padding: 1em;
   height: 100vh;
   border-left: 1px solid black;
@@ -24,7 +25,6 @@ body {
 .main {
   height: 100%;
   width: 75%;
-  padding: 1em;
 }
 
 .cards {
@@ -102,7 +102,7 @@ body {
 }
 
 .summary {
-  font-size: 24px;
+  font-size: 16px;
   margin-top: 0;
   margin-bottom: 1em;
 }
@@ -110,4 +110,31 @@ body {
 h1 {
   margin-bottom: 0;
   line-height: 1.5;
+}
+
+.basket h1 {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+button {
+  display: inline-block;
+  border: 2px solid rgb(34, 34, 34);
+  border-radius: 5px;
+
+  font-weight: bold;
+  font-size: 16px;
+
+  padding: 8px 10px 4px;
+  cursor: pointer;
+  background-color: rgb(131, 255, 205);
+  box-shadow: 4px 4px 0 rgb(34, 34, 34);
+}
+
+button:active {
+  background-color: rgb(217, 229, 241);
+}
+
+button:hover {
+  box-shadow: 2px 2px 0 rgb(34, 34, 34);
 }
