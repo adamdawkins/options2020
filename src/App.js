@@ -452,14 +452,19 @@ function Home({ cars }) {
 function OptionViewer({ state, dispatch }) {
   const { capcode } = useParams();
   dispatch({ type: "DEBUG.SELECT_VEHICLE", capcode });
-
+  const numberOfOptions = Object.keys(state.options).length;
+  const numberOfRules = Object.keys(state.rules).length;
   return (
     <div className="App">
       <div className="main">
         <h1>{capcode}</h1>
         <p className="summary">
-          {Object.keys(state.options).length} options,{" "}
-          {Object.keys(state.rules).length} rules
+          {numberOfOptions} options, {numberOfRules} rules (Complexity:{" "}
+          {Math.round(
+            (numberOfOptions / numberOfRules) *
+              (numberOfOptions + numberOfRules)
+          )}
+          )
         </p>
         <div className="cards">
           {decorateCollection(decorateOption(state), state.options).map(
