@@ -366,14 +366,16 @@ export const DebugOptionView = ({ option, relatedOptions, dispatch }) => {
   return (
     <div>
       <h2>
-        {option.id}: {option.description}
+        <div className="id">{option.id}</div>
+        {option.description}
+        <p className="summary">£{(option.price / 36).toFixed(2)} p/m</p>
       </h2>
       {option.isSelected ? (
         <button>Remove Option</button>
       ) : (
         <button>Select Option</button>
       )}
-      <div>
+      <div style={{ marginTop: "4em" }}>
         <h3>Rules</h3>
         {option.rules.map(rule => (
           <div
@@ -458,7 +460,9 @@ function OptionViewer({ state, dispatch }) {
     <div className="App">
       <div className="main">
         <div className="basket">
-          <h1>{capcode}</h1>
+          <h1>
+            <Link to="/">Cars</Link> > {capcode}
+          </h1>
           <p className="summary">
             {numberOfOptions} options, {numberOfRules} rules (Complexity:{" "}
             {Math.round(

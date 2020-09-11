@@ -138,3 +138,12 @@ button:active {
 button:hover {
   box-shadow: 2px 2px 0 rgb(34, 34, 34);
 }
+
+.id {
+  color: #666;
+  font-size: 14px;
+}
+
+.id::before {
+  content: "#";
+}
