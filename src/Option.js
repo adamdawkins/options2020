@@ -40,21 +40,6 @@ export default function Option({
         {id}: {description}
       </span>
       <div className="card__actions">
-        {isSelected ? (
-          <button
-            className="warning"
-            onClick={() => dispatch({ type: "BASKET.REMOVE_OPTION", id })}
-          >
-            Remove Option
-          </button>
-        ) : (
-          <button
-            className="primary"
-            onClick={() => dispatch({ type: "BASKET.ADD_OPTION", id })}
-          >
-            Add Option
-          </button>
-        )}
         <button
           className="view-button"
           onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id })}
