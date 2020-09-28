@@ -16,7 +16,7 @@ export const curry = fn => {
 // List Utils
 
 //           contains :: (x, [x]) -> Boolean
-export const contains = (item, list) => list.indexOf(item) > -1;
+export const contains = (item, list) => list && list.indexOf(item) > -1;
 
 //           unique :: [x] -> [x]
 export const unique = list => [...new Set(list)];
