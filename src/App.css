@@ -63,7 +63,7 @@ body {
 }
 
 .card.disabled {
-  opacity: .5;
+  display: none;
   cursor: default;
 }
 
