@@ -52,7 +52,6 @@ export const addVehicleOptionsToState = (vehicleData, state) => {
   state.rules = {};
   vehicleData.map(
     ({
-      id,
       capcode,
       name,
       introduced,
