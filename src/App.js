@@ -1,36 +1,36 @@
 import React, { useReducer } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams
-} from "react-router-dom";
-import classNames from "classnames";
-
-import data from "./data";
-import {
-  contains,
-  curry,
-  decorateCollection,
-  path,
-  unique,
-  without
-} from "./utils";
-import { relatedOptionIds, decorateOption, decorateRule } from "./helpers";
-import debug from "./debug";
-
-import OptionViewer from "./OptionViewer";
-import Home from "./Home";
+// import classNames from "classnames";
 
 import "./App.css";
 
-const ONE_OF = "OO";
-const REQUIRES_ONE = "RO";
-const REQUIRES_ALL = "RA";
-const NOT_WITH = "NW";
-const INCLUDED_IN = "IN";
-const INCLUDE_ONE = "IO";
+import data from "./data";
+
+import {
+  // contains,
+  // curry,
+  decorateCollection,
+  // path,
+  unique,
+  without
+} from "./utils";
+
+import "./App.css";
+
+import {
+  addVehicleOptionsToState,
+  decorateOption
+  // decorateRule,
+  // relatedOptionIds
+} from "./helpers";
+
+import Option from "./Option";
+
+// const ONE_OF = "OO";
+// const REQUIRES_ONE = "RO";
+// const REQUIRES_ALL = "RA";
+// const NOT_WITH = "NW";
+// const INCLUDED_IN = "IN";
+// const INCLUDE_ONE = "IO";
 
 //    init :: [OptionRow] => State
 const init = data => {
@@ -38,12 +38,10 @@ const init = data => {
     options: {},
     rules: {},
     selectedOptions: [],
-    appliedRules: [],
-    debug: { view: { id: null, type: null } },
-    cars: Object.keys(data)
+    appliedRules: []
   };
 
-  return state;
+  return addVehicleOptionsToState(data, state);
 };
 
 // ACTIONS
@@ -86,18 +84,6 @@ const reducer = (state, action) => {
       return selectOption(action.id, state);
     case "BASKET.REMOVE_OPTION":
       return deselectOption(action.id, state);
-    case "DEBUG.VIEW_OPTION":
-      return {
-        ...state,
-        debug: { ...state.debug, view: { type: "option", id: action.id } }
-      };
-    case "DEBUG.VIEW_RULE":
-      return {
-        ...state,
-        debug: { ...state.debug, view: { type: "rule", id: action.id } }
-      };
-    case "DEBUG.SELECT_VEHICLE":
-      return debug.addVehicleOptionsToState(action.capcode, state);
     default:
       return state;
   }
@@ -110,17 +96,33 @@ function App() {
 
   console.log(state);
 
+  const numberOfOptions = Object.keys(state.options).length;
+  const numberOfRules = Object.keys(state.rules).length;
+
   return (
-    <Router>
-      <Switch>
-        <Route path="/:capcode">
-          <OptionViewer state={state} dispatch={dispatch} />
-        </Route>
-        <Route path="/">
-          <Home cars={state.cars} />
-        </Route>
-      </Switch>
-    </Router>
+    <div className="App">
+      <div className="main">
+        <div className="basket">
+          <h1>AUA115CVT5HPTA 2</h1>
+          <p className="summary">
+            {numberOfOptions} options, {numberOfRules} rules (Complexity:{" "}
+            {Math.round(
+              (numberOfOptions / numberOfRules) *
+                (numberOfOptions + numberOfRules)
+            )}
+            )
+          </p>
+        </div>
+        <div className="cards">
+          {decorateCollection(decorateOption(state), state.options).map(
+            option => (
+              <Option key={option.id} {...option} dispatch={dispatch} />
+            )
+          )}
+        </div>
+      </div>
+      <div className="sidebar"></div>
+    </div>
   );
 }
 

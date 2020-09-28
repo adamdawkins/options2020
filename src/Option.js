@@ -14,18 +14,14 @@ export default function Option({
   return (
     <div
       className={classNames("card", {
-        selected: isSelected,
-        viewed: debug.isViewed,
-        related: debug.isRelated
+        selected: isSelected
       })}
     >
       <div className="card__labels">
         {rules.map(rule => (
           <span
             key={rule.id}
-            className={classNames("card-label", {
-              selected: debug.view.id === rule.id
-            })}
+            className={classNames("card-label", { selected: false })}
             title={rule.id}
             onClick={event => {
               event.stopPropagation();
@@ -41,10 +37,10 @@ export default function Option({
       </span>
       <div className="card__actions">
         <button
-          className="view-button"
-          onClick={() => dispatch({ type: "DEBUG.VIEW_OPTION", id })}
+          className="button primary"
+          onClick={() => dispatch({ type: "BASKET.ADD_OPTION", id })}
         >
-          View
+          Add
         </button>
       </div>
     </div>
