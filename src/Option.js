@@ -7,6 +7,8 @@ import { isSelectable } from "./helpers";
 export default function Option(option) {
   const {
     id,
+    categoryCode,
+    categoryDescription,
     description,
     isSelected,
     appliedRuleIds,
@@ -41,7 +43,7 @@ export default function Option(option) {
         ))}
       </div>
       <span className="card__title">
-        {id}: {description}
+        {id}: {description} ({categoryCode})
       </span>
       <div className="card__actions">
         {isSelected ? (
@@ -61,6 +63,7 @@ export default function Option(option) {
           </button>
         )}
       </div>
+      <div className="card__category">{categoryDescription}</div>
     </div>
   );
 }

@@ -24,6 +24,9 @@ export const all = list => list.every(identity);
 //           contains :: (x, [x]) -> Boolean
 export const contains = (item, list) => list && list.indexOf(item) > -1;
 
+//           sortBy :: Ord b => (x -> b) -> [x] -> [x]
+export const sortBy = curry((fn, list) => list.sort((a, b) => fn(a) - fn(b)));
+
 //           unique :: [x] -> [x]
 export const unique = list => [...new Set(list)];
 
@@ -57,3 +60,6 @@ export const path = (props, object) => {
 
   return currentProp;
 };
+
+//           prop :: String -> {k: v} -> v?
+export const prop = curry((key, object) => object && object[key]);

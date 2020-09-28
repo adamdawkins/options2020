@@ -76,6 +76,12 @@ body {
   line-height: 20px;
 }
 
+.card__category {
+  margin-bottom: 5px;
+  text-align: right;
+  font-style: italic;
+}
+
 .card__labels {
   position: relative;
   overflow: auto;

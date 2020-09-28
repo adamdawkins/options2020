@@ -76,6 +76,8 @@ export const addVehicleOptionsToState = (vehicleData, state) => {
         id: `${optionCode}`,
         price: basicPrice,
         isDefault: defaultOption,
+        categoryCode,
+        categoryDescription,
         description,
         ruleIds: unique(option.ruleIds.concat([`${ruleCode}`]))
       });

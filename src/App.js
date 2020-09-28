@@ -5,15 +5,7 @@ import "./App.css";
 
 import data from "./data";
 
-import {
-  // all,
-  contains,
-  // curry,
-  decorateCollection,
-  // path,
-  // unique,
-  without
-} from "./utils";
+import { contains, decorateCollection, prop, sortBy, without } from "./utils";
 
 import "./App.css";
 
@@ -108,16 +100,17 @@ function App() {
           </p>
         </div>
         <div className="cards">
-          {decorateCollection(decorateOption(state), state.options).map(
-            option => (
-              <Option
-                key={option.id}
-                {...option}
-                dispatch={dispatch}
-                appliedRuleIds={state.appliedRuleIds}
-              />
-            )
-          )}
+          {sortBy(
+            prop("categoryCode"),
+            decorateCollection(decorateOption(state), state.options)
+          ).map(option => (
+            <Option
+              key={option.id}
+              {...option}
+              dispatch={dispatch}
+              appliedRuleIds={state.appliedRuleIds}
+            />
+          ))}
         </div>
       </div>
       <div className="sidebar">
