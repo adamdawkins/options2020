@@ -74,24 +74,24 @@ export const addVehicleOptionsToState = (vehicleData, state) => {
     }) => {
       const option = state.options[optionCode] || { ruleIds: [] };
       const newOption = Object.assign(option, {
-        id: optionCode,
+        id: `${optionCode}`,
         price: basicPrice,
         isDefault: defaultOption,
         description,
-        ruleIds: unique(option.ruleIds.concat([ruleCode]))
+        ruleIds: unique(option.ruleIds.concat([`${ruleCode}`]))
       });
 
       state.options[optionCode] = newOption;
 
       const rule = state.rules[ruleCode] || { optionIds: [] };
       const newRule = Object.assign(rule, {
-        id: ruleCode,
+        id: `${ruleCode}`,
         type: ruleType,
-        optionIds: rule.optionIds.concat([optionCode])
+        optionIds: rule.optionIds.concat([`${optionCode}`])
       });
 
       if (isPrimary) {
-        newRule.primaryOptionId = optionCode;
+        newRule.primaryOptionId = `${optionCode}`;
       }
 
       state.rules[ruleCode] = newRule;
