@@ -57,7 +57,7 @@ body {
    background: rgba(255, 255, 0, .3);
 }
 
-.card.viewed {
+.card.selected {
   box-shadow: 5px 5px black;
   font-weight: bold;
 }
