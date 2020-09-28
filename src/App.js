@@ -11,7 +11,7 @@ import {
   // curry,
   decorateCollection,
   // path,
-  unique,
+  // unique,
   without
 } from "./utils";
 
@@ -20,9 +20,10 @@ import "./App.css";
 import {
   addVehicleOptionsToState,
   decorateOption,
+  decorateRule,
   getAppliedRuleIds,
+  isSelectable,
   isSelected
-  // decorateRule,
   // relatedOptionIds
 } from "./helpers";
 
@@ -80,9 +81,20 @@ const reducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(reducer, data, init);
 
-  console.log(state);
-
   const numberOfOptions = Object.keys(state.options).length;
+  const numberOfAvailableOptions = decorateCollection(
+    decorateOption(state),
+    state.options
+  )
+    .map(({ ruleIds }) =>
+      isSelectable(
+        ruleIds
+          .filter(id => contains(id, state.appliedRuleIds))
+          .map(decorateRule(state))
+      )
+    )
+    .filter(x => x === true).length;
+
   const numberOfRules = Object.keys(state.rules).length;
 
   return (
@@ -91,12 +103,8 @@ function App() {
         <div className="basket">
           <h1>AUA115CVT5HPTA 2</h1>
           <p className="summary">
-            {numberOfOptions} options, {numberOfRules} rules (Complexity:{" "}
-            {Math.round(
-              (numberOfOptions / numberOfRules) *
-                (numberOfOptions + numberOfRules)
-            )}
-            )
+            {numberOfAvailableOptions} of {numberOfOptions} options still
+            available to select
           </p>
         </div>
         <div className="cards">
@@ -107,7 +115,6 @@ function App() {
                 {...option}
                 dispatch={dispatch}
                 appliedRuleIds={state.appliedRuleIds}
-                isSelected={isSelected(option.id, state)}
               />
             )
           )}

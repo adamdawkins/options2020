@@ -7,15 +7,13 @@ import { isSelectable } from "./helpers";
 export default function Option(option) {
   const {
     id,
-    price,
-    isDefault,
     description,
     isSelected,
     appliedRuleIds,
     rules,
     dispatch
   } = option;
-  console.log(option);
+
   const selectable =
     isSelected ||
     isSelectable(rules.filter(rule => contains(rule.id, appliedRuleIds)));
