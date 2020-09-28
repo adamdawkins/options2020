@@ -33,7 +33,7 @@ export const relatedOptionIds = (id, state) =>
   );
 
 // isSelected :: (Int, State) -> Boolean
-export const isSelected = (id, state) => contains(id, state.selectedOptions);
+export const isSelected = (id, state) => contains(id, state.selectedOptionIds);
 
 export const addVehicleOptionsToState = (vehicleData, state) => {
   state.options = {};
@@ -90,3 +90,14 @@ export const addVehicleOptionsToState = (vehicleData, state) => {
 
   return state;
 };
+
+//           getAppliedRuleIds :: ([Int], State) => [Int]
+export const getAppliedRuleIds = (selectedOptionIds, state) =>
+  selectedOptionIds.length === 0
+    ? []
+    : unique(
+        selectedOptionIds.reduce(
+          (rules, id) => rules.concat(state.options[id].ruleIds),
+          []
+        )
+      );

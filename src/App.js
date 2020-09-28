@@ -18,11 +18,13 @@ import "./App.css";
 
 import {
   addVehicleOptionsToState,
-  decorateOption
+  decorateOption,
+  getAppliedRuleIds
   // decorateRule,
   // relatedOptionIds
 } from "./helpers";
 
+import Basket from "./Basket";
 import Option from "./Option";
 
 // const ONE_OF = "OO";
@@ -37,8 +39,8 @@ const init = data => {
   const state = {
     options: {},
     rules: {},
-    selectedOptions: [],
-    appliedRules: []
+    selectedOptionIds: [],
+    appliedRuleIds: []
   };
 
   return addVehicleOptionsToState(data, state);
@@ -48,11 +50,11 @@ const init = data => {
 
 //    selectOption :: (id, state) -> State
 const selectOption = (id, state) => {
-  const selectedOptions = state.selectedOptions.concat([id]);
+  const selectedOptionIds = state.selectedOptionIds.concat([id]);
   return {
     ...state,
-    selectedOptions,
-    appliedRules: getAppliedRules(selectedOptions, state)
+    selectedOptionIds,
+    appliedRuleIds: getAppliedRuleIds(selectedOptionIds, state)
   };
 };
 
@@ -62,20 +64,9 @@ const deselectOption = (id, state) => {
   return {
     ...state,
     selectedOptions,
-    appliedRules: getAppliedRules(selectedOptions, state)
+    appliedRuleIds: getAppliedRuleIds(selectedOptions, state)
   };
 };
-
-//    getAppliedRules :: ([Int], State) => [Int]
-const getAppliedRules = (selectedOptions, state) =>
-  selectedOptions.length === 0
-    ? []
-    : unique(
-        selectedOptions.reduce(
-          (rules, id) => rules.concat(state.options[id].ruleIds),
-          []
-        )
-      );
 
 //    reducer :: (State, Action) -> State
 const reducer = (state, action) => {
@@ -116,12 +107,19 @@ function App() {
         <div className="cards">
           {decorateCollection(decorateOption(state), state.options).map(
             option => (
-              <Option key={option.id} {...option} dispatch={dispatch} />
+              <Option
+                key={option.id}
+                {...option}
+                dispatch={dispatch}
+                appliedRuleIds={state.appliedRuleIds}
+              />
             )
           )}
         </div>
       </div>
-      <div className="sidebar"></div>
+      <div className="sidebar">
+        <Basket dispatch={dispatch} state={state} />
+      </div>
     </div>
   );
 }

@@ -1,14 +1,16 @@
 import React from "react";
 import classNames from "classnames";
 
+import { contains } from "./utils";
+
 export default function Option({
   id,
   price,
   isDefault,
   description,
   isSelected,
+  appliedRuleIds,
   rules,
-  debug,
   dispatch
 }) {
   return (
@@ -21,12 +23,10 @@ export default function Option({
         {rules.map(rule => (
           <span
             key={rule.id}
-            className={classNames("card-label", { selected: false })}
+            className={classNames("card-label", {
+              selected: contains(rule.id, appliedRuleIds)
+            })}
             title={rule.id}
-            onClick={event => {
-              event.stopPropagation();
-              dispatch({ type: "DEBUG.VIEW_RULE", id: rule.id });
-            }}
           >
             {rule.type}
           </span>
