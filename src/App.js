@@ -6,7 +6,8 @@ import "./App.css";
 import data from "./data";
 
 import {
-  // contains,
+  // all,
+  contains,
   // curry,
   decorateCollection,
   // path,
@@ -19,20 +20,14 @@ import "./App.css";
 import {
   addVehicleOptionsToState,
   decorateOption,
-  getAppliedRuleIds
+  getAppliedRuleIds,
+  isSelected
   // decorateRule,
   // relatedOptionIds
 } from "./helpers";
 
 import Basket from "./Basket";
 import Option from "./Option";
-
-// const ONE_OF = "OO";
-// const REQUIRES_ONE = "RO";
-// const REQUIRES_ALL = "RA";
-// const NOT_WITH = "NW";
-// const INCLUDED_IN = "IN";
-// const INCLUDE_ONE = "IO";
 
 //    init :: [OptionRow] => State
 const init = data => {
@@ -60,11 +55,11 @@ const selectOption = (id, state) => {
 
 //    deselectOption :: (id, state) -> State
 const deselectOption = (id, state) => {
-  const selectedOptions = without(id, state.selectedOptions);
+  const selectedOptionIds = without(id, state.selectedOptionIds);
   return {
     ...state,
-    selectedOptions,
-    appliedRuleIds: getAppliedRuleIds(selectedOptions, state)
+    selectedOptionIds,
+    appliedRuleIds: getAppliedRuleIds(selectedOptionIds, state)
   };
 };
 
@@ -112,6 +107,7 @@ function App() {
                 {...option}
                 dispatch={dispatch}
                 appliedRuleIds={state.appliedRuleIds}
+                isSelected={isSelected(option.id, state)}
               />
             )
           )}

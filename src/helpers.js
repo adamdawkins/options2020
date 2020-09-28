@@ -1,4 +1,11 @@
-import { curry, unique, contains } from "./utils";
+import { all, contains, curry, unique } from "./utils";
+
+const ONE_OF = "OO";
+const REQUIRES_ONE = "RO";
+const REQUIRES_ALL = "RA";
+const NOT_WITH = "NW";
+const INCLUDED_IN = "IN";
+const INCLUDE_ONE = "IO";
 
 // GETTERS
 //    rulesForOption :: (id, state) -> [Rule]
@@ -11,11 +18,16 @@ export const optionsForRule = (id, state) =>
 
 // fills out the option with rules and basket status
 //    decorateOption :: State -> Int -> Option
-export const decorateOption = curry((state, id) => ({
-  ...state.options[id],
-  rules: rulesForOption(id, state),
-  isSelected: isSelected(id, state)
-}));
+export const decorateOption = curry((state, id) => {
+  return {
+    ...state.options[id],
+    rules: rulesForOption(id, state),
+    isSelected: isSelected(id, state)
+  };
+});
+
+//           getRules :: ([Int], state) -> [Rule]
+export const getRules = (ids, state) => ids.map(id => state.rules[id]);
 
 // fills out the rule with options
 //    decorateRule :: State -> Int -> Option
@@ -101,3 +113,27 @@ export const getAppliedRuleIds = (selectedOptionIds, state) =>
           []
         )
       );
+
+//           isSelectable :: [Rule] -> Boolean
+export const isSelectable = appliedRules => {
+  return all(
+    appliedRules.map(rule => {
+      switch (rule.type) {
+        case ONE_OF:
+          return false;
+        case REQUIRES_ONE:
+          return true; // TODO: sort this out so that one is defiintely selected
+        case REQUIRES_ALL:
+          return true; // TODO: include this by default
+        case NOT_WITH:
+          return false;
+        case INCLUDED_IN:
+          return true; // TODO: include this by default
+        case INCLUDE_ONE:
+          return true; // TODO: sort this out so that one is definitely selected
+        default:
+          return true;
+      }
+    })
+  );
+};

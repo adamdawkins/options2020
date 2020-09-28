@@ -2,21 +2,31 @@ import React from "react";
 import classNames from "classnames";
 
 import { contains } from "./utils";
+import { isSelectable } from "./helpers";
 
-export default function Option({
-  id,
-  price,
-  isDefault,
-  description,
-  isSelected,
-  appliedRuleIds,
-  rules,
-  dispatch
-}) {
+export default function Option(option) {
+  const {
+    id,
+    price,
+    isDefault,
+    description,
+    isSelected,
+    appliedRuleIds,
+    rules,
+    dispatch
+  } = option;
+  console.log(option);
+  const selectable =
+    isSelected ||
+    isSelectable(rules.filter(rule => contains(rule.id, appliedRuleIds)));
+
+  const disabled = !selectable;
+
   return (
     <div
       className={classNames("card", {
-        selected: isSelected
+        selected: isSelected,
+        disabled
       })}
     >
       <div className="card__labels">
@@ -39,9 +49,14 @@ export default function Option({
         <button
           className="button primary"
           onClick={() => dispatch({ type: "BASKET.ADD_OPTION", id })}
+          disabled={disabled}
         >
           Add
         </button>
+      </div>
+
+      <div className="card__details" style={{ fontFamily: "monospace" }}>
+        <ul>{isSelected ? <li>Selected</li> : ""}</ul>
       </div>
     </div>
   );

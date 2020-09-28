@@ -13,7 +13,13 @@ export const curry = fn => {
   };
 };
 
+//    identity :: x -> x
+const identity = x => x;
+
 // List Utils
+
+//           all :: [x] -> Boolean
+export const all = list => list.every(identity);
 
 //           contains :: (x, [x]) -> Boolean
 export const contains = (item, list) => list && list.indexOf(item) > -1;
