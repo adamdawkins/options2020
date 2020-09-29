@@ -1,5 +1,6 @@
 import React from "react";
 
+import { prop } from "./utils";
 import { decorateOption } from "./helpers";
 
 const Basket = ({ state, dispatch }) => {
@@ -39,8 +40,20 @@ const Basket = ({ state, dispatch }) => {
           <span className="card__title">
             {selectedOption.id}: {selectedOption.description}
           </span>
+          <span className="card__price">
+            +£{(selectedOption.price / 24).toFixed(2)}/mo
+          </span>
         </div>
       ))}
+      {selectedOptions.length > 0 && (
+        <div className="basket__total">
+          +£
+          {(
+            selectedOptions.map(prop("price")).reduce((a, b) => a + b, 0) / 24
+          ).toFixed(2)}
+          /mo
+        </div>
+      )}
     </div>
   );
 };

@@ -72,8 +72,11 @@ body {
 }
 
 .card__title {
+  display: block;
   margin-bottom: 4px;
+
   line-height: 20px;
+  font-weight: bold;
 }
 
 .card__category {
@@ -167,4 +170,11 @@ button + button {
 
 .id::before {
   content: "#";
+}
+
+.basket__total {
+  border-top: 1px solid black;
+  margin-top: 20px;
+  font-size: 1.75rem;
+  font-weight:bold;
 }

@@ -7,6 +7,7 @@ import { isEnabled } from "./helpers";
 export default function Option({
   state,
   id,
+  price,
   categoryCode,
   categoryDescription,
   description,
@@ -42,6 +43,7 @@ export default function Option({
       <span className="card__title">
         {id}: {description} ({categoryCode})
       </span>
+      <span className="card__price">+£{(price / 24).toFixed(2)}/mo</span>
       <div className="card__actions">
         {isSelected ? (
           <button
