@@ -1,4 +1,4 @@
-import { all, contains, curry, unique } from "./utils";
+import { all, contains, curry, intersection, unique } from "./utils";
 
 export const ONE_OF = "OO";
 export const REQUIRES_ONE = "RO";
@@ -139,19 +139,45 @@ export const isSelectable = appliedRules => {
   );
 };
 
-//    selectOption :: (id, state) -> State
-export const selectOption = (optionId, state) => {
-  let selectedOptionIds = state.selectedOptionIds.concat([optionId]);
+// isEnabled :: (id, state) -> Boolean
+export const isEnabled = (optionId, state) => {
+  if (contains(optionId, state.selectedOptionIds)) {
+    return true;
+  }
 
-  let appliedRuleIds = rulesForOption(optionId, state).map(rule => {
-    if (rule.type === REQUIRES_ALL && rule.primaryOptionId === optionId) {
-      selectedOptionIds = unique(selectedOptionIds.concat(rule.optionIds));
+  const option = state.options[optionId];
+
+  // "REQUIRES ONE" is the only option that requires us to check the selected options regardless of
+  // if the rule is applied or not
+  const requiresOneRulesForOption = getRules(option.ruleIds, state).filter(
+    ({ type }) => type === REQUIRES_ONE
+  );
+
+  console.log({ requiresOneRulesForOption });
+
+  const enabledByRequiresOne = requiresOneRulesForOption.map(rule =>
+    // if any of the other optionIds for the rule are selected, this is enabled.
+    state.selectedOptionIds.some(id => contains(id, rule.optionIds))
+  );
+
+  if (enabledByRequiresOne.some(enabled => enabled === false)) {
+    console.log(
+      "A Requires One rule is disabling this option, returning false"
+    );
+    return false;
+  }
+
+  const appliedRulesForOption = getRules(
+    intersection(option.ruleIds, state.appliedRuleIds),
+    state
+  );
+
+  const enabledByAppliedRules = appliedRulesForOption.map(rule => {
+    if (rule.type === ONE_OF) {
+      return false;
     }
+    return true;
   });
 
-  return {
-    ...state,
-    selectedOptionIds,
-    appliedRuleIds: getAppliedRuleIds(selectedOptionIds, state)
-  };
+  return all(enabledByAppliedRules);
 };

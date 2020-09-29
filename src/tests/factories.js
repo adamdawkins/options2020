@@ -12,5 +12,16 @@ export const Factory = {
       },
       props
     );
+  },
+  state(settings) {
+    return Object.assign(
+      {
+        options: {},
+        rules: {},
+        selectedOptionIds: [],
+        appliedRuleIds: []
+      },
+      settings
+    );
   }
 };

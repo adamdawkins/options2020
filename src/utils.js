@@ -24,6 +24,15 @@ export const all = list => list.every(identity);
 //           contains :: (x, [x]) -> Boolean
 export const contains = (item, list) => list && list.indexOf(item) > -1;
 
+//    returns the list of elements found in both lists
+//           intersection :: -> ([x], [x]) -> [x]
+export const intersection = (list1, list2) => {
+  const lookupList = list1.length > list2.length ? list1 : list2;
+  const filteredList = list1.length > list2.length ? list2 : list1;
+
+  return unique(filteredList.filter(x => contains(x, lookupList)));
+};
+
 //           sortBy :: Ord b => (x -> b) -> [x] -> [x]
 export const sortBy = curry((fn, list) => list.sort((a, b) => fn(a) - fn(b)));
 
