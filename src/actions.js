@@ -1,21 +1,6 @@
 import { unique } from "./utils";
 import { rulesForOption, REQUIRES_ALL, getAppliedRuleIds } from "./helpers";
 
-//    selectOption :: (id, state) -> State
-// export const selectOption = (optionId, state) => {
-//   let selectedOptionIds = state.selectedOptionIds.concat([optionId]);
-//
-//   rulesForOption(optionId, state).map(rule => {
-//     if (rule.type === REQUIRES_ALL && rule.primaryOptionId === optionId) {
-//       selectedOptionIds = unique(selectedOptionIds.concat(rule.optionIds));
-//     }
-//   });
-//
-//   return {
-//     ...state,
-//     selectedOptionIds,
-//   };
-// };
 export const selectOption = (optionId, state) => {
   let selectedOptionIds = state.selectedOptionIds.concat([optionId]);
 
