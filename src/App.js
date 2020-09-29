@@ -89,6 +89,11 @@ function App() {
 
   const numberOfRules = Object.keys(state.rules).length;
 
+  const options = sortBy(
+    prop("categoryCode"),
+    decorateCollection(decorateOption(state), state.options)
+  );
+
   return (
     <div className="App">
       <div className="main">
@@ -100,10 +105,7 @@ function App() {
           </p>
         </div>
         <div className="cards">
-          {sortBy(
-            prop("categoryCode"),
-            decorateCollection(decorateOption(state), state.options)
-          ).map(option => (
+          {options.map(option => (
             <Option
               key={option.id}
               {...option}
