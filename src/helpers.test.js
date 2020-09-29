@@ -124,7 +124,7 @@ describe("isEnabled(optionId, state)", () => {
   });
 
   // CAP > NOT WITH: If the primary option is chosen, none of the other marked options may be chosen
-  describe.only("when the option has a 'Not With' rule'", () => {
+  describe("when the option has a 'Not With' rule'", () => {
     const notWithState = Factory.state({
       options: {
         "1": Factory.option({ id: "1", ruleIds: ["NOT_WITH_RULE"] }),

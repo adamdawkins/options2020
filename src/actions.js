@@ -1,6 +1,13 @@
-import { unique } from "./utils";
-import { rulesForOption, REQUIRES_ALL, getAppliedRuleIds } from "./helpers";
+import { contains, unique, without } from "./utils";
+import {
+  INCLUDED_IN,
+  REQUIRES_ONE,
+  REQUIRES_ALL,
+  rulesForOption,
+  getAppliedRuleIds
+} from "./helpers";
 
+//           selectOption :: (id, state) -> State
 export const selectOption = (optionId, state) => {
   let selectedOptionIds = state.selectedOptionIds.concat([optionId]);
 
@@ -19,6 +26,41 @@ export const selectOption = (optionId, state) => {
           }
         });
       });
+    }
+  });
+
+  return {
+    ...state,
+    selectedOptionIds,
+    appliedRuleIds: getAppliedRuleIds(selectedOptionIds, state)
+  };
+};
+
+//           removeOption :: (id, state) -> State
+export const removeOption = (id, state) => {
+  const option = state.options[id];
+  let selectedOptionIds = without(id, state.selectedOptionIds);
+
+  rulesForOption(id, state).map(rule => {
+    if (rule.type === REQUIRES_ALL) {
+      selectedOptionIds = without(rule.primaryOptionId, selectedOptionIds);
+    }
+
+    if (rule.type === REQUIRES_ONE) {
+      const otherSelectedOptions = without(
+        id,
+        rule.optionIds
+      ).filter(optionId => contains(optionId, selectedOptionIds));
+      if (
+        otherSelectedOptions.length === 1 &&
+        otherSelectedOptions[0] === rule.primaryOptionId
+      ) {
+        selectedOptionIds = without(rule.primaryOptionId, selectedOptionIds);
+      }
+    }
+
+    if (rule.type === INCLUDED_IN && rule.primaryOptionId === id) {
+      selectedOptionIds = without(rule.optionIds, selectedOptionIds);
     }
   });
 

@@ -39,8 +39,11 @@ export const sortBy = curry((fn, list) => list.sort((a, b) => fn(a) - fn(b)));
 //           unique :: [x] -> [x]
 export const unique = list => [...new Set(list)];
 
-//           without :: (x, [x]) -> [x]
-export const without = (item, list) => list.filter(x => x !== item);
+//           without :: (x|[x], [x]) -> [x]
+export const without = (item, list) => {
+  const items = [item].flat();
+  return list.filter(x => !contains(x, item));
+};
 
 // Object Utils
 

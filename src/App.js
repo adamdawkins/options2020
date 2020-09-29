@@ -28,7 +28,7 @@ import {
   // relatedOptionIds
 } from "./helpers";
 
-import { selectOption } from "./actions";
+import { removeOption, selectOption } from "./actions";
 
 import Basket from "./Basket";
 import Option from "./Option";
@@ -47,23 +47,13 @@ const init = data => {
 
 // ACTIONS
 
-//    deselectOption :: (id, state) -> State
-const deselectOption = (id, state) => {
-  const selectedOptionIds = without(id, state.selectedOptionIds);
-  return {
-    ...state,
-    selectedOptionIds,
-    appliedRuleIds: getAppliedRuleIds(selectedOptionIds, state)
-  };
-};
-
 //    reducer :: (State, Action) -> State
 const reducer = (state, action) => {
   switch (action.type) {
     case "BASKET.ADD_OPTION":
       return selectOption(action.id, state);
     case "BASKET.REMOVE_OPTION":
-      return deselectOption(action.id, state);
+      return removeOption(action.id, state);
     default:
       return state;
   }
