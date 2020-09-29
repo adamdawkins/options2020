@@ -1,21 +1,6 @@
 import { selectOption } from "./actions";
+import { Factory } from "./tests/factories";
 
-const Factory = {
-  option(props) {
-    return Object.assign(
-      {
-        id: "1",
-        price: 100.0,
-        isDefault: false,
-        categoryCode: 58,
-        categoryDescription: "Paint",
-        description: "A thing",
-        ruleIds: []
-      },
-      props
-    );
-  }
-};
 describe("selectOption(optionId, state)", () => {
   describe("basic behaviour", () => {
     const state = {
