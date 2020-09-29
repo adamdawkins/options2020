@@ -1,11 +1,11 @@
 import { all, contains, curry, unique } from "./utils";
 
-const ONE_OF = "OO";
-const REQUIRES_ONE = "RO";
-const REQUIRES_ALL = "RA";
-const NOT_WITH = "NW";
-const INCLUDED_IN = "IN";
-const INCLUDE_ONE = "IO";
+export const ONE_OF = "OO";
+export const REQUIRES_ONE = "RO";
+export const REQUIRES_ALL = "RA";
+export const NOT_WITH = "NW";
+export const INCLUDED_IN = "IN";
+export const INCLUDE_ONE = "IO";
 
 // GETTERS
 //    rulesForOption :: (id, state) -> [Rule]
@@ -137,4 +137,21 @@ export const isSelectable = appliedRules => {
       }
     })
   );
+};
+
+//    selectOption :: (id, state) -> State
+export const selectOption = (optionId, state) => {
+  let selectedOptionIds = state.selectedOptionIds.concat([optionId]);
+
+  let appliedRuleIds = rulesForOption(optionId, state).map(rule => {
+    if (rule.type === REQUIRES_ALL && rule.primaryOptionId === optionId) {
+      selectedOptionIds = unique(selectedOptionIds.concat(rule.optionIds));
+    }
+  });
+
+  return {
+    ...state,
+    selectedOptionIds,
+    appliedRuleIds: getAppliedRuleIds(selectedOptionIds, state)
+  };
 };

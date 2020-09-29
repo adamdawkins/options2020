@@ -5,7 +5,14 @@ import "./App.css";
 
 import data from "./data";
 
-import { contains, decorateCollection, prop, sortBy, without } from "./utils";
+import {
+  contains,
+  decorateCollection,
+  prop,
+  sortBy,
+  unique,
+  without
+} from "./utils";
 
 import "./App.css";
 
@@ -15,9 +22,13 @@ import {
   decorateRule,
   getAppliedRuleIds,
   isSelectable,
-  isSelected
+  isSelected,
+  rulesForOption,
+  REQUIRES_ALL
   // relatedOptionIds
 } from "./helpers";
+
+import { selectOption } from "./actions";
 
 import Basket from "./Basket";
 import Option from "./Option";
@@ -35,16 +46,6 @@ const init = data => {
 };
 
 // ACTIONS
-
-//    selectOption :: (id, state) -> State
-const selectOption = (id, state) => {
-  const selectedOptionIds = state.selectedOptionIds.concat([id]);
-  return {
-    ...state,
-    selectedOptionIds,
-    appliedRuleIds: getAppliedRuleIds(selectedOptionIds, state)
-  };
-};
 
 //    deselectOption :: (id, state) -> State
 const deselectOption = (id, state) => {
