@@ -187,4 +187,25 @@ describe("isEnabled(optionId, state)", () => {
       });
     });
   });
+  // CAP > INCLUDE ONE OF: If the primary option is chosen, it must be accompanied by one of the
+  //                       non-primary options. The selected non-primary option will be
+  //                       included at 0 cost.
+  describe.only("when the option has a 'Include One of' rule", () => {
+    const includeOneState = Factory.state({
+      options: {
+        "1": Factory.option({ id: "1", ruleIds: ["INCLUDE_ONE_RULE"] }),
+        "2": Factory.option({ id: "2", ruleIds: ["INCLUDE_ONE_RULE"] })
+      },
+      rules: {
+        INCLUDE_ONE_RULE: {
+          type: INCLUDE_ONE,
+          optionIds: ["1", "2"]
+        }
+      }
+    });
+
+    describe("when the option is the primary option", () => {
+      it.todo("do we need to allow this selection in a certain order?");
+    });
+  });
 });
