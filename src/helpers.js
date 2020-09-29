@@ -29,6 +29,10 @@ export const decorateOption = curry((state, id) => {
 //           getRules :: ([Int], state) -> [Rule]
 export const getRules = (ids, state) => ids.map(id => state.rules[id]);
 
+//           getRulesOfType :: ([Int], String, state) -> [Rule]
+export const getRulesOfType = (ids, ruleType, state) =>
+  ids.map(id => state.rules[id]).filter(({ type }) => type === ruleType);
+
 // fills out the rule with options
 //    decorateRule :: State -> Int -> Option
 export const decorateRule = curry((state, id) => ({
@@ -149,21 +153,18 @@ export const isEnabled = (optionId, state) => {
 
   // "REQUIRES ONE" is the only option that requires us to check the selected options regardless of
   // if the rule is applied or not
-  const requiresOneRulesForOption = getRules(option.ruleIds, state).filter(
-    ({ type }) => type === REQUIRES_ONE
-  );
+  const primaryRequiresOneRulesForOption = getRulesOfType(
+    option.ruleIds,
+    REQUIRES_ONE,
+    state
+  ).filter(({ primaryOptionId }) => primaryOptionId === optionId);
 
-  console.log({ requiresOneRulesForOption });
-
-  const enabledByRequiresOne = requiresOneRulesForOption.map(rule =>
+  const enabledByRequiresOne = primaryRequiresOneRulesForOption.map(rule =>
     // if any of the other optionIds for the rule are selected, this is enabled.
     state.selectedOptionIds.some(id => contains(id, rule.optionIds))
   );
 
-  if (enabledByRequiresOne.some(enabled => enabled === false)) {
-    console.log(
-      "A Requires One rule is disabling this option, returning false"
-    );
+  if (!all(enabledByRequiresOne)) {
     return false;
   }
 
@@ -176,6 +177,11 @@ export const isEnabled = (optionId, state) => {
     if (rule.type === ONE_OF) {
       return false;
     }
+
+    if (rule.type === NOT_WITH) {
+      return !contains(rule.primaryOptionId, state.selectedOptionIds);
+    }
+
     return true;
   });
 
