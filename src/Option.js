@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 
 import { contains } from "./utils";
-import { isEnabled } from "./helpers";
+import { isEnabled, isEnabledByRule, RULE_TYPE_NAMES } from "./helpers";
 
 export default function Option({
   state,
@@ -32,7 +32,8 @@ export default function Option({
           <span
             key={rule.id}
             className={classNames("card-label", {
-              selected: contains(rule.id, appliedRuleIds)
+              selected: contains(rule.id, appliedRuleIds),
+              warning: !isEnabledByRule(id, rule.id, state)
             })}
             title={rule.id}
           >
@@ -63,6 +64,18 @@ export default function Option({
         )}
       </div>
       <div className="card__category">{categoryDescription}</div>
+      {disabled && (
+        <div className="card__debug">
+          {rules
+            .filter(rule => !isEnabledByRule(id, rule.id, state))
+            .map(rule => (
+              <li key={rule.id}>
+                This option is disabled by the{" "}
+                <strong>{RULE_TYPE_NAMES[rule.type]}</strong> Rule ({rule.id})
+              </li>
+            ))}
+        </div>
+      )}
     </div>
   );
 }

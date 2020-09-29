@@ -63,7 +63,7 @@ body {
 }
 
 .card.disabled {
-  opacity: .5;
+  background: #ebecf0;
   cursor: default;
 }
 
@@ -94,6 +94,12 @@ body {
   padding: .5em 0;
 }
 
+.card__debug {
+  border-top: 1px dashed;
+  padding-top: .5em;
+  font-family: monospace;
+}
+
 .card-label {
   float: left;
   font-size: 12px;
@@ -111,6 +117,11 @@ body {
 
 .card-label.selected {
   background: yellow;
+  color: black;
+}
+
+.card-label.warning {
+  background-color: #ffdadf;
   color: black;
 }
 

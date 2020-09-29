@@ -187,3 +187,48 @@ export const isEnabled = (optionId, state) => {
 
   return all(enabledByAppliedRules);
 };
+
+//           isEnabledByRule :: (id, id, State) -> Boolean
+export const isEnabledByRule = (optionId, ruleId, state) => {
+  if (contains(optionId, state.selectedOptionIds)) {
+    return true;
+  }
+
+  const option = state.options[optionId];
+  const rule = state.rules[ruleId];
+
+  // "REQUIRES ONE" is the only option that requires us to check the selected options regardless of
+  // if the rule is applied or not
+  const primaryRequiresOneRulesForOption = getRulesOfType(
+    option.ruleIds,
+    REQUIRES_ONE,
+    state
+  ).filter(({ primaryOptionId }) => primaryOptionId === optionId);
+
+  if (rule.type === REQUIRES_ONE && rule.primaryOptionId === optionId) {
+    return state.selectedOptionIds.some(id => contains(id, rule.optionIds));
+  }
+
+  if (contains(ruleId, state.appliedRuleIds)) {
+    if (rule.type === ONE_OF) {
+      return false;
+    }
+
+    if (rule.type === NOT_WITH) {
+      return !contains(rule.primaryOptionId, state.selectedOptionIds);
+    }
+
+    return true;
+  }
+
+  return true;
+};
+
+export const RULE_TYPE_NAMES = {
+  [ONE_OF]: "ONE OF",
+  [REQUIRES_ONE]: "REQUIRES ONE",
+  [REQUIRES_ALL]: "REQUIRES ALL",
+  [NOT_WITH]: "NOT WITH",
+  [INCLUDED_IN]: "INCLUDED IN",
+  [INCLUDE_ONE]: "INCLUDED ONE"
+};
