@@ -112,6 +112,7 @@ function App() {
               {...option}
               dispatch={dispatch}
               appliedRuleIds={state.appliedRuleIds}
+              state={state}
             />
           ))}
         </div>

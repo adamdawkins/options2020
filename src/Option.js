@@ -2,25 +2,22 @@ import React from "react";
 import classNames from "classnames";
 
 import { contains } from "./utils";
-import { isSelectable } from "./helpers";
+import { isEnabled } from "./helpers";
 
-export default function Option(option) {
-  const {
-    id,
-    categoryCode,
-    categoryDescription,
-    description,
-    isSelected,
-    appliedRuleIds,
-    rules,
-    dispatch
-  } = option;
+export default function Option({
+  state,
+  id,
+  categoryCode,
+  categoryDescription,
+  description,
+  isSelected,
+  appliedRuleIds,
+  rules,
+  dispatch
+}) {
+  const enabled = isEnabled(id, state);
 
-  const selectable =
-    isSelected ||
-    isSelectable(rules.filter(rule => contains(rule.id, appliedRuleIds)));
-
-  const disabled = !selectable;
+  const disabled = !enabled;
 
   return (
     <div
