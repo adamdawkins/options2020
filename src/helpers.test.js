@@ -190,7 +190,7 @@ describe("isEnabled(optionId, state)", () => {
   // CAP > INCLUDE ONE OF: If the primary option is chosen, it must be accompanied by one of the
   //                       non-primary options. The selected non-primary option will be
   //                       included at 0 cost.
-  describe.only("when the option has a 'Include One of' rule", () => {
+  describe("when the option has a 'Include One of' rule", () => {
     const includeOneState = Factory.state({
       options: {
         "1": Factory.option({ id: "1", ruleIds: ["INCLUDE_ONE_RULE"] }),
