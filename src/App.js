@@ -89,7 +89,7 @@ function App() {
     <div className="App">
       <div className="main">
         <div className="basket">
-          <h1>AUA115CVT5HPTA 2</h1>
+          <h1>BM3D30MTE4SDTA 8</h1>
           <p className="summary">
             {numberOfAvailableOptions} of {numberOfOptions} options still
             available to select
