@@ -120,6 +120,31 @@ describe("selectOption(optionId, state)", () => {
       });
     });
   });
+  describe("when the option is a primary option in an included in rule", () => {
+    const state = Factory.state({
+      options: {
+        "1": Factory.option({ id: "1", ruleIds: ["INCLUDED_IN_RULE"] }),
+        "2": Factory.option({ id: "2", ruleIds: ["INCLUDED_IN_RULE"] })
+      },
+      rules: {
+        INCLUDED_IN_RULE: {
+          type: INCLUDED_IN,
+          optionIds: ["1", "2"],
+          primaryOptionId: "1"
+        }
+      },
+      selectedOptionIds: ["1", "2"],
+      appliedRuleIds: ["INCLUDED_IN_RULE"]
+    });
+
+    it("adds the secondary options", () => {
+      expect(selectOption("1", state)).toEqual(
+        expect.objectContaining({
+          selectedOptionIds: ["1", "2"]
+        })
+      );
+    });
+  });
 });
 
 describe("removeOption(id, state)", () => {

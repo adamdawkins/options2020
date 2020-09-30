@@ -12,12 +12,15 @@ export const selectOption = (optionId, state) => {
   let selectedOptionIds = state.selectedOptionIds.concat([optionId]);
 
   rulesForOption(optionId, state).map(rule => {
-    if (rule.type === REQUIRES_ALL && rule.primaryOptionId === optionId) {
+    if (
+      contains(rule.type, [INCLUDED_IN, REQUIRES_ALL]) &&
+      rule.primaryOptionId === optionId
+    ) {
       selectedOptionIds = unique(selectedOptionIds.concat(rule.optionIds));
       rule.optionIds.map(otherOptionId => {
         rulesForOption(otherOptionId, state).map(otherRule => {
           if (
-            otherRule.type === REQUIRES_ALL &&
+            contains(otherRule.type, [INCLUDED_IN, REQUIRES_ALL]) &&
             otherRule.primaryOptionId === otherOptionId
           ) {
             selectedOptionIds = unique(
