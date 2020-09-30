@@ -24,7 +24,8 @@ export default function Option({
     <div
       className={classNames("card", {
         selected: isSelected,
-        disabled
+        disabled,
+        pack: categoryDescription === "Packs"
       })}
     >
       <div className="card__labels">

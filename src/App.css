@@ -100,6 +100,21 @@ body {
   font-family: monospace;
 }
 
+.card.pack {
+  background: #fff;
+  box-shadow:
+  /* The top layer shadow */
+  0 1px 1px black,
+  /* The second layer */
+  0 10px 0 -5px #fff,
+  /* The second layer shadow */
+  0 10px 1px -4px black,
+  /* The third layer */
+  0 20px 0 -10px #fff,
+  /* The third layer shadow */
+  0 20px 1px -9px black;
+}
+
 .card-label {
   float: left;
   font-size: 12px;
