@@ -34,7 +34,8 @@ export default function Option({
             key={rule.id}
             className={classNames("card-label", {
               selected: contains(rule.id, appliedRuleIds),
-              warning: !isEnabledByRule(id, rule.id, state)
+              warning: !isEnabledByRule(id, rule.id, state),
+              oneRule: rule.optionIds.length === 1
             })}
             title={rule.id}
           >

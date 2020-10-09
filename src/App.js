@@ -63,6 +63,7 @@ const reducer = (state, action) => {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, data, init);
+  console.log({ state });
 
   const numberOfOptions = Object.keys(state.options).length;
   const numberOfAvailableOptions = decorateCollection(
@@ -79,6 +80,10 @@ function App() {
     .filter(x => x === true).length;
 
   const numberOfRules = Object.keys(state.rules).length;
+
+  const rules = decorateCollection(decorateRule(state), state.rules);
+
+  rules.map(rule => console.log(rule.id, rule.options.length));
 
   const options = sortBy(
     prop("categoryCode"),

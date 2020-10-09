@@ -140,6 +140,11 @@ body {
   color: black;
 }
 
+.card-label.oneRule {
+  opacity: .5;
+  border: 1px dashed white;
+}
+
 .summary {
   font-size: 16px;
   margin-top: 0;
