@@ -2,7 +2,13 @@ import React from "react";
 import classNames from "classnames";
 
 import { contains } from "./utils";
-import { isEnabled, isEnabledByRule, RULE_TYPE_NAMES } from "./helpers";
+import { decorateRule } from "./helpers";
+import {
+  INCLUDED_IN,
+  isEnabled,
+  isEnabledByRule,
+  RULE_TYPE_NAMES
+} from "./helpers";
 
 export default function Option({
   state,
@@ -12,6 +18,7 @@ export default function Option({
   categoryDescription,
   description,
   isSelected,
+  isZeroPricePackOption,
   appliedRuleIds,
   rules,
   dispatch
@@ -19,11 +26,24 @@ export default function Option({
   const enabled = isEnabled(id, state);
 
   const disabled = !enabled;
+  let includedRule = null;
+  // categoryCode 34 is Packs
+  if (categoryCode === 34) {
+    const includedRules = rules
+      .filter(
+        ({ type, primaryOptionId }) =>
+          type === INCLUDED_IN && primaryOptionId === id
+      )
+      .map(rule => rule && decorateRule(state, rule.id));
+
+    includedRule = includedRules && includedRules[0];
+  }
 
   return (
     <div
       className={classNames("card", {
         selected: isSelected,
+        hidden: isZeroPricePackOption,
         disabled,
         pack: categoryDescription === "Packs"
       })}
@@ -65,6 +85,18 @@ export default function Option({
           </button>
         )}
       </div>
+      {includedRule && (
+        <div>
+          Includes:
+          <ul>
+            {includedRule.options
+              .filter(({ id }) => id !== includedRule.primaryOptionId)
+              .map(option => (
+                <li key={option.id}>{option.description}</li>
+              ))}
+          </ul>
+        </div>
+      )}
       <div className="card__category">{categoryDescription}</div>
       {disabled && (
         <div className="card__debug">

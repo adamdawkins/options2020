@@ -33,6 +33,17 @@ export const intersection = (list1, list2) => {
   return unique(filteredList.filter(x => contains(x, lookupList)));
 };
 
+// turns an array of objects into an object with the key specified:
+// e.g. toObjectByKey("id", {id: "A", foo: "bar"}, {id: "B", bar: "foo"})
+// =>  {"A": {id: "A", foo: "bar"}, "B": {id: "B", bar: "foo"}}
+// toObjectByKey String -> [Object] -> Object
+export const toObjectByKey = curry((key, list) => {
+  const result = {};
+  list.map(obj => (result[prop(key, obj)] = obj));
+
+  return result;
+});
+
 //           sortBy :: Ord b => (x -> b) -> [x] -> [x]
 export const sortBy = curry((fn, list) => list.sort((a, b) => fn(a) - fn(b)));
 
@@ -75,3 +86,10 @@ export const path = (props, object) => {
 
 //           prop :: String -> {k: v} -> v?
 export const prop = curry((key, object) => object && object[key]);
+
+//           removeKey :: String -> Object -> Object
+export const removeKey = curry((key, object) => {
+  const result = Object.assign({}, object);
+  delete result[key];
+  return result;
+});

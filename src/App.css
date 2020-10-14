@@ -209,3 +209,11 @@ button + button {
   font-size: 1.75rem;
   font-weight:bold;
 }
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  margin-bottom: 1em;
+}

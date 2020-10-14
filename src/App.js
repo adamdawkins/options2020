@@ -83,8 +83,6 @@ function App() {
 
   const rules = decorateCollection(decorateRule(state), state.rules);
 
-  rules.map(rule => console.log(rule.id, rule.options.length));
-
   const options = sortBy(
     prop("categoryCode"),
     decorateCollection(decorateOption(state), state.options)
@@ -100,16 +98,69 @@ function App() {
             available to select
           </p>
         </div>
+        <h1>Exterior</h1>
         <div className="cards">
-          {options.map(option => (
-            <Option
-              key={option.id}
-              {...option}
-              dispatch={dispatch}
-              appliedRuleIds={state.appliedRuleIds}
-              state={state}
-            />
-          ))}
+          {options
+            .filter(({ categoryCode }) => contains(categoryCode, [44, 45, 88]))
+            .map(option => (
+              <Option
+                key={option.id}
+                {...option}
+                dispatch={dispatch}
+                appliedRuleIds={state.appliedRuleIds}
+                state={state}
+              />
+            ))}
+        </div>
+        <hr style={{ margin: "20px 0" }} />
+        <h1>Interior</h1>
+        <div className="cards">
+          {options
+            .filter(({ categoryCode }) =>
+              contains(categoryCode, [49, 61, 82, 84])
+            )
+            .map(option => (
+              <Option
+                key={option.id}
+                {...option}
+                dispatch={dispatch}
+                appliedRuleIds={state.appliedRuleIds}
+                state={state}
+              />
+            ))}
+        </div>
+        <hr style={{ margin: "20px 0" }} />
+        <h1>Packs</h1>
+        <div className="cards">
+          {options
+            .filter(({ categoryCode }) => contains(categoryCode, [34]))
+            .map(option => (
+              <Option
+                key={option.id}
+                {...option}
+                dispatch={dispatch}
+                appliedRuleIds={state.appliedRuleIds}
+                state={state}
+              />
+            ))}
+        </div>
+        <hr style={{ margin: "20px 0" }} />
+        <h1>Extras</h1>
+        <div className="cards">
+          {options
+            .filter(
+              ({ categoryCode }) =>
+                !contains(categoryCode, [34, 44, 45, 49, 61, 82, 84, 88])
+            )
+            .map(option => (
+              <Option
+                key={option.id}
+                {...option}
+                dispatch={dispatch}
+                appliedRuleIds={state.appliedRuleIds}
+                state={state}
+              />
+            ))}
         </div>
       </div>
       <div className="sidebar">

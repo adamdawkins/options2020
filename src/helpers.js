@@ -1,4 +1,15 @@
-import { all, contains, curry, intersection, unique } from "./utils";
+import {
+  all,
+  collection,
+  contains,
+  curry,
+  intersection,
+  prop,
+  removeKey,
+  toObjectByKey,
+  unique,
+  without
+} from "./utils";
 
 export const ONE_OF = "OO";
 export const REQUIRES_ONE = "RO";
@@ -51,11 +62,44 @@ export const relatedOptionIds = (id, state) =>
 // isSelected :: (Int, State) -> Boolean
 export const isSelected = (id, state) => contains(id, state.selectedOptionIds);
 
+//    isZeroPricePackOption :: State -> Id -> Boolean
+const isZeroPricePackOption = curry((state, id) => {
+  const option = decorateOption(state, id);
+
+  if (option.price > 0) {
+    return false;
+  }
+
+  return option.rules.some(
+    ({ type, primaryOptionId }) =>
+      type === INCLUDED_IN && primaryOptionId !== option.id
+  );
+});
+
+// SETTERS
+
+//           removeOption :: State -> Id -> State
+export const removeOption = (state, id) => {
+  let result = state;
+
+  result.options = removeKey(id, state.options);
+
+  collection(result.rules).map(rule => {
+    let updatedRule = { ...rule, optionIds: without(id, rule.optionIds) };
+    result.rules[rule.id] = updatedRule;
+  });
+
+  return result;
+};
+
 export const addVehicleOptionsToState = (vehicleData, state) => {
   state.options = {};
   state.rules = {};
   vehicleData
-    .filter(({ defaultOption }) => !defaultOption)
+    .filter(
+      ({ defaultOption, nonSpecificCostOption }) =>
+        !(defaultOption || nonSpecificCostOption)
+    )
     .map(
       ({
         capcode,
@@ -107,7 +151,17 @@ export const addVehicleOptionsToState = (vehicleData, state) => {
       }
     );
 
-  return state;
+  // we can only work out what the zero price pack options are at the end really.
+  return {
+    ...state,
+    options: toObjectByKey(
+      "id",
+      collection(state.options).map(option => ({
+        ...option,
+        isZeroPricePackOption: isZeroPricePackOption(state, option.id)
+      }))
+    )
+  };
 };
 
 //           getAppliedRuleIds :: ([Int], State) => [Int]

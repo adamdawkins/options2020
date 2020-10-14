@@ -5,7 +5,8 @@ import {
   NOT_WITH,
   INCLUDED_IN,
   INCLUDE_ONE,
-  isEnabled
+  isEnabled,
+  removeOption
 } from "./helpers";
 import { Factory } from "./tests/factories";
 
@@ -207,5 +208,31 @@ describe("isEnabled(optionId, state)", () => {
     describe("when the option is the primary option", () => {
       it.todo("do we need to allow this selection in a certain order?");
     });
+  });
+});
+
+describe("removeOption(state, id)", () => {
+  const state = Factory.state({
+    options: {
+      "1": Factory.option({ id: "1" }),
+      "2": Factory.option({ id: "2" })
+    },
+    rules: {
+      INCLUDE_ONE_RULE: {
+        id: "INCLUDE_ONE_RULE",
+        type: INCLUDE_ONE,
+        optionIds: ["1", "2"]
+      }
+    }
+  });
+
+  it("removes the property from state.options", () => {
+    let result = removeOption(state, "1");
+    expect(result.options["1"]).toBeUndefined();
+  });
+
+  it("removes the optionId from any rules", () => {
+    let result = removeOption(state, "1");
+    expect(result.rules.INCLUDE_ONE_RULE.optionIds).toEqual(["2"]);
   });
 });
