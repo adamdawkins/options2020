@@ -17,7 +17,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic paint",
-  "nonSpecificCostOption": "TRUE",
+  "nonSpecificCostOption": true,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -39,7 +39,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearlescent paint",
-  "nonSpecificCostOption": "TRUE",
+  "nonSpecificCostOption": true,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -61,7 +61,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Special paint",
-  "nonSpecificCostOption": "TRUE",
+  "nonSpecificCostOption": true,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -83,7 +83,7 @@
   "vat": 0,
   "defaultOption": true,
   "description": "Solid paint",
-  "nonSpecificCostOption": "TRUE",
+  "nonSpecificCostOption": true,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -105,7 +105,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Arrow Grey",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -127,7 +127,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Misano Red",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -149,7 +149,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Glacier white",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -171,7 +171,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Mythos black",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -193,7 +193,7 @@
   "vat": 0,
   "defaultOption": false,
   "description": "Solid - Shell white",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 45,
   "categoryDescription": "Paint - Solid"
  },
@@ -215,7 +215,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Firmament blue",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -237,7 +237,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Python yellow",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -259,7 +259,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Special solid - Tioman green",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 75,
   "categoryDescription": "Paint - Special"
  },
@@ -281,7 +281,7 @@
   "vat": 0,
   "defaultOption": true,
   "description": "3 spoke leather multifunction plus steering wheel",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 61,
   "categoryDescription": "Interior Features"
  },
@@ -303,7 +303,7 @@
   "vat": 41.67,
   "defaultOption": false,
   "description": "3 spoke flat bottomed multi-function leather steering wheel with paddle shift",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 61,
   "categoryDescription": "Interior Features"
  },
@@ -325,7 +325,7 @@
   "vat": 70.83,
   "defaultOption": false,
   "description": "Contrast roof - Manhattan grey",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -347,7 +347,7 @@
   "vat": 70.83,
   "defaultOption": false,
   "description": "Contrast roof - Mythos black",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -369,7 +369,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Arrow Grey",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -391,7 +391,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Misano Red",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -413,7 +413,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Glacier white",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -435,7 +435,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Mythos black",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -457,7 +457,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Firmament blue",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -479,7 +479,7 @@
   "vat": 70.83,
   "defaultOption": false,
   "description": "Contrast roof - Manhattan grey",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -501,7 +501,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Python yellow",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -523,7 +523,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Special solid - Tioman green",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 75,
   "categoryDescription": "Paint - Special"
  },
@@ -545,7 +545,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Arrow Grey",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -567,7 +567,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Misano Red",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -589,7 +589,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Glacier white",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -611,7 +611,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Firmament blue",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -633,7 +633,7 @@
   "vat": 70.83,
   "defaultOption": false,
   "description": "Contrast roof - Mythos black",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -655,7 +655,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Python yellow",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -677,7 +677,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Special solid - Tioman green",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 75,
   "categoryDescription": "Paint - Special"
  },
@@ -699,7 +699,7 @@
   "vat": 0,
   "defaultOption": false,
   "description": "Novum cloth - Granite grey with mint contrast + front sport seats",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 81,
   "categoryDescription": "Trim - Cloth"
  },
@@ -721,7 +721,7 @@
   "vat": 0,
   "defaultOption": false,
   "description": "Novum cloth - Granite grey steel grey contrast stitching + front sport seats",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 81,
   "categoryDescription": "Trim - Cloth"
  },
@@ -743,7 +743,7 @@
   "vat": 0,
   "defaultOption": true,
   "description": "Manual air conditioning",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 87,
   "categoryDescription": "Heating/Cooling/Ventilation"
  },
@@ -765,7 +765,7 @@
   "vat": 115.83,
   "defaultOption": false,
   "description": "Plus pack - A1 Sportback",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 34,
   "categoryDescription": "Packs"
  },
@@ -787,7 +787,7 @@
   "vat": 16.67,
   "defaultOption": false,
   "description": "Space saving spare wheel",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 89,
   "categoryDescription": "Wheels - Spare"
  },
@@ -809,7 +809,7 @@
   "vat": 4.17,
   "defaultOption": false,
   "description": "Tool kit and Jack",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 89,
   "categoryDescription": "Wheels - Spare"
  },
@@ -831,7 +831,7 @@
   "vat": 16.67,
   "defaultOption": false,
   "description": "Space saving spare wheel",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 89,
   "categoryDescription": "Wheels - Spare"
  },
@@ -853,7 +853,7 @@
   "vat": 4.17,
   "defaultOption": false,
   "description": "Tool kit and Jack",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 89,
   "categoryDescription": "Wheels - Spare"
  },
@@ -875,7 +875,7 @@
   "vat": 0,
   "defaultOption": true,
   "description": "Tyre repair kit",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 89,
   "categoryDescription": "Wheels - Spare"
  },
@@ -897,7 +897,7 @@
   "vat": 16.67,
   "defaultOption": false,
   "description": "Space saving spare wheel",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 89,
   "categoryDescription": "Wheels - Spare"
  },
@@ -919,7 +919,7 @@
   "vat": 0,
   "defaultOption": true,
   "description": "Tool kit",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 61,
   "categoryDescription": "Interior Features"
  },
@@ -941,7 +941,7 @@
   "vat": 4.17,
   "defaultOption": false,
   "description": "Tool kit and Jack",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 89,
   "categoryDescription": "Wheels - Spare"
  },
@@ -963,7 +963,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Arrow Grey",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -985,7 +985,7 @@
   "vat": 70.83,
   "defaultOption": false,
   "description": "Contrast roof - Manhattan grey",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -1007,7 +1007,7 @@
   "vat": 70.83,
   "defaultOption": false,
   "description": "Contrast roof - Mythos black",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 58,
   "categoryDescription": "Exterior Body Features"
  },
@@ -1029,7 +1029,7 @@
   "vat": 191.67,
   "defaultOption": false,
   "description": "Comfort and sound pack - A1 Sportback",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 34,
   "categoryDescription": "Packs"
  },
@@ -1051,7 +1051,7 @@
   "vat": 0,
   "defaultOption": true,
   "description": "6 passive loudspeakers",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 24,
   "categoryDescription": "Entertainment"
  },
@@ -1073,7 +1073,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Pearl - Misano Red",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 74,
   "categoryDescription": "Paint - Pearlescent"
  },
@@ -1095,7 +1095,7 @@
   "vat": 95.83,
   "defaultOption": false,
   "description": "Metallic - Python yellow",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 44,
   "categoryDescription": "Paint - Metallic"
  },
@@ -1117,7 +1117,7 @@
   "vat": 0,
   "defaultOption": false,
   "description": "Novum cloth - Granite grey with mint contrast + front sport seats",
-  "nonSpecificCostOption": "FALSE",
+  "nonSpecificCostOption": false,
   "categoryCode": 81,
   "categoryDescription": "Trim - Cloth"
  }

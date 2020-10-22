@@ -92,7 +92,7 @@ function App() {
     <div className="App">
       <div className="main">
         <div className="basket">
-          <h1>BM3D30MTE4SDTA 8</h1>
+          <h1>AUA115CVT5HPTA 3</h1>
           <p className="summary">
             {numberOfAvailableOptions} of {numberOfOptions} options still
             available to select
@@ -101,7 +101,9 @@ function App() {
         <h1>Exterior</h1>
         <div className="cards">
           {options
-            .filter(({ categoryCode }) => contains(categoryCode, [44, 45, 88]))
+            .filter(({ categoryCode }) =>
+              contains(categoryCode, [44, 45, 58, 74, 75, 88])
+            )
             .map(option => (
               <Option
                 key={option.id}
@@ -117,7 +119,7 @@ function App() {
         <div className="cards">
           {options
             .filter(({ categoryCode }) =>
-              contains(categoryCode, [49, 61, 82, 84])
+              contains(categoryCode, [49, 61, 81, 82, 84])
             )
             .map(option => (
               <Option
@@ -150,7 +152,20 @@ function App() {
           {options
             .filter(
               ({ categoryCode }) =>
-                !contains(categoryCode, [34, 44, 45, 49, 61, 82, 84, 88])
+                !contains(categoryCode, [
+                  34,
+                  44,
+                  45,
+                  58,
+                  74,
+                  75,
+                  49,
+                  61,
+                  81,
+                  82,
+                  84,
+                  88
+                ])
             )
             .map(option => (
               <Option
